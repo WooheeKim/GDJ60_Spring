@@ -1,10 +1,12 @@
-package com.woo.s1;
+package com.woo.s1.army;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
 public class Gun {
 	
+	@Autowired
 	private Bullet bullet;
 	
 	public Gun() {
@@ -12,10 +14,6 @@ public class Gun {
 	}
 	
 	public Gun(Bullet bullet) {
-		this.bullet = bullet;
-	}
-	
-	public void setBullet(Bullet bullet) {
 		this.bullet = bullet;
 	}
 
