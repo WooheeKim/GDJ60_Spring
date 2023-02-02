@@ -14,8 +14,8 @@ public class MemberController {
 		return "member/memberJoin";
 	}
 	
-	@RequestMapping(value = "MemberLogin")
-	public void getMemberLogin() {
+	@RequestMapping(value = "memberLogin")
+	public void memberLogin() {
 		
 	}
 	

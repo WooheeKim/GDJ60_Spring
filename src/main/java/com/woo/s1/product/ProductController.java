@@ -24,17 +24,20 @@ public class ProductController {
 		return "product/productList"; 
 	}
 	
+	// String 방식
 	@RequestMapping(value = "detail")
 	public String getProductDetail() {
 		System.out.println("Product Detail");
 		return "product/productDetail";
 	}
 	
-	@RequestMapping(value = "ProductAdd")
-	public void ProductAdd() {
+	// void 방식
+	@RequestMapping(value = "productAdd")
+	public void productAdd() {
 		
 	}
 	
+	// ModelAndView 방식 
 	@RequestMapping(value = "update")
 	public ModelAndView getProductUpdate() {
 		ModelAndView mv = new ModelAndView();
