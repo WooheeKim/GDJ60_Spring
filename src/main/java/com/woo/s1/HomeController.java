@@ -38,6 +38,11 @@ public class HomeController {
 		System.out.println(soldier.getName());
 		System.out.println(soldier.getAge());
 		
+		
+		
+		
+		
+		
 //		Soldier soldier = new Soldier();
 //		Bullet bullet = new Bullet();
 //		Gun gun = new Gun(bullet);
