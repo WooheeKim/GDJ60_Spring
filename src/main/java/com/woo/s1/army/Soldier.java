@@ -13,32 +13,12 @@ public class Soldier {
 	@Autowired
 	@Qualifier("sg")
 	private Gun shotGun;
-	@Autowired
-	@Qualifier("rf")
+	
 	private Gun rifle;
 	 
 	private String name;
 	private int age;
 	
-	public void setGun(Gun gun) {
-		this.gun=gun;
-	}
-
-	public void useGun() {
-		this.gun.trigger();
-	}
-	
-	public Soldier() {
-		this.gun = new Gun();
-	}
-	
-	public Soldier(Gun gun) {
-		this.gun = gun;
-	}
-
-	public Gun getGun() {
-		return gun;
-	}
 	
 	public String getName() {
 		return name;

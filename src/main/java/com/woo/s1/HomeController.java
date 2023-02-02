@@ -1,6 +1,5 @@
 package com.woo.s1;
 
-import java.nio.Buffer;
 import java.text.DateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -13,7 +12,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.woo.s1.army.Bullet;
 import com.woo.s1.army.Soldier;
 
 /**
@@ -34,21 +32,9 @@ public class HomeController {
 	public String home(Locale locale, Model model) {
 		logger.info("Welcome home! The client locale is {}.", locale);
 		
-		soldier.useGun();
 		System.out.println(soldier.getName());
 		System.out.println(soldier.getAge());
 		
-		
-		
-		
-		
-		
-//		Soldier soldier = new Soldier();
-//		Bullet bullet = new Bullet();
-//		Gun gun = new Gun(bullet);
-//		soldier.setGun(gun);
-//		
-//		soldier.useGun();
 		
 		Date date = new Date();
 		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
