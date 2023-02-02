@@ -24,9 +24,6 @@ public class HomeController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
-	@Autowired
-	private Soldier soldier;
-	
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
@@ -34,16 +31,6 @@ public class HomeController {
 	public String home(Locale locale, Model model) {
 		logger.info("Welcome home! The client locale is {}.", locale);
 		
-		soldier.useGun();
-		System.out.println(soldier.getName());
-		System.out.println(soldier.getAge());
-		
-//		Soldier soldier = new Soldier();
-//		Bullet bullet = new Bullet();
-//		Gun gun = new Gun(bullet);
-//		soldier.setGun(gun);
-//		
-//		soldier.useGun();
 		
 		Date date = new Date();
 		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
