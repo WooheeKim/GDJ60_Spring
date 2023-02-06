@@ -24,22 +24,8 @@ public class ProductDAO {
 	
 	// delete
 	public int setProductDelete(int productNum) throws Exception {
-		int result = 0;
 		
-		// 1. DB연결
-		Connection connection = DBConnection.getConnection();
-		// 2. SQL 생성
-		String sql = "DELETE PRODUCT WHERE PRODUCTNUM=?";
-		// 3. SQL 미리보내기
-		PreparedStatement st = connection.prepareStatement(sql);
-		// 4. ? 셋팅
-		st.setInt(1, productNum);
-		// 5. 최종 전송 및 결과 처리
-		result = st.executeUpdate();
-		// 6. 연결 해제
-		DBConnection.disConnect(st, connection);
-		
-		return result;
+		return sqlSession.delete(NAMESPACE+"setProductDelete", productNum);
 	}
 	
 	public int getProductNum() throws Exception {
