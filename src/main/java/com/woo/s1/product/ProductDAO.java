@@ -6,12 +6,39 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.sql.DataSource;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.woo.s1.util.DBConnection;
 
 @Repository
 public class ProductDAO {
+	
+	@Autowired
+	private DataSource dataSource;
+	
+	
+	// delete
+	public int setProductDelete(int productNum) throws Exception {
+		int result = 0;
+		
+		// 1. DB연결
+		Connection connection = DBConnection.getConnection();
+		// 2. SQL 생성
+		String sql = "DELETE PRODUCT WHERE PRODUCTNUM=?";
+		// 3. SQL 미리보내기
+		PreparedStatement st = connection.prepareStatement(sql);
+		// 4. ? 셋팅
+		st.setInt(1, productNum);
+		// 5. 최종 전송 및 결과 처리
+		result = st.executeUpdate();
+		// 6. 연결 해제
+		DBConnection.disConnect(st, connection);
+		
+		return result;
+	}
 	
 	public int getProductNum() throws Exception {
 		Connection connection = DBConnection.getConnection();
@@ -81,26 +108,6 @@ public class ProductDAO {
 	
 	public ProductDTO getProductDetail(ProductDTO productDTO) throws Exception {
 		
-		Connection connection = DBConnection.getConnection();
-		
-		String sql = "SELECT * FROM PRODUCT WHERE PRODUCTNUM=?";
-		
-		PreparedStatement st = connection.prepareStatement(sql);
-		
-		st.setInt(1, productDTO.getProductNum());
-		
-		ResultSet rs = st.executeQuery();
-		
-		if(rs.next()) {
-			productDTO = new ProductDTO();
-			productDTO.setProductNum(rs.getInt("PRODUCTNUM"));
-			productDTO.setProductName(rs.getString("PRODUCTNAME"));
-			productDTO.setProductJumsu(rs.getDouble("PRODUCTJUMSU"));
-			productDTO.setProductDetail(rs.getString("PRODUCTDETAIL"));
-		} else {
-			productDTO = null;
-		}
-		DBConnection.disConnect(rs, st, connection);
 		return productDTO;
 	}
 	
@@ -108,25 +115,6 @@ public class ProductDAO {
 	public List<ProductDTO> getProductList() throws Exception{
 		
 		ArrayList<ProductDTO> ar = new ArrayList<ProductDTO>();
-		
-		Connection connection = DBConnection.getConnection();
-		
-		String sql = "SELECT PRODUCTNUM, PRODUCTNAME, PRODUCTJUMSU "
-				+ "FROM PRODUCT ORDER BY PRODUCTJUMSU DESC";
-		
-		PreparedStatement st = connection.prepareStatement(sql);
-		
-		ResultSet rs = st.executeQuery();
-		
-		while(rs.next()) {
-			ProductDTO productDTO = new ProductDTO();
-			productDTO.setProductNum(rs.getInt("PRODUCTNUM"));
-			productDTO.setProductName(rs.getString("PRODUCTNAME"));
-			productDTO.setProductJumsu(rs.getDouble("PRODUCTJUMSU"));
-			ar.add(productDTO);
-			
-		}
-		DBConnection.disConnect(rs, st, connection);
 		
 		return ar;
 	}

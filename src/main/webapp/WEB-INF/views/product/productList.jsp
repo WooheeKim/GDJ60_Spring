@@ -22,7 +22,7 @@
 	<%} %>
 		
 	<hr>
-	<div class=col-6>
+	<div class="col-6">
 	<table class="table table-hover">
 		<thead>
 			<tr>
@@ -34,7 +34,7 @@
 		<tbody>		
 			<c:forEach items="${list}" var="dto"> <!-- dto는 page영역에 담김 -->
 				<tr>
-					<td><a href="./detail?productNum=${dto.productNum}"></a>${pageScope.dto.productName=${dto.productNum}</td>
+					<td><a href="./detail?productNum=${dto.productNum}">${pageScope.dto.productName}</a></td>
 					<td>${dto.productJumsu}</td>
 				</tr>
 			</c:forEach>
@@ -43,9 +43,9 @@
 	
 		<a class="btn btn-danger" href="./productAdd">상품등록</a>
 	</div>
-	<h3>${list}</h3>
 	
-	<a href="./detail?productNum=11">productDetail</a>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+	
+	
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 </body>
 </html>
