@@ -8,6 +8,7 @@ import java.util.List;
 
 import javax.sql.DataSource;
 
+import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -17,7 +18,8 @@ import com.woo.s1.util.DBConnection;
 public class ProductDAO {
 	
 	@Autowired
-	private DataSource dataSource;
+	private SqlSession sqlSession;
+	private final String NAMESPACE="com.woo.s1.product.ProductDAO.";
 	
 	
 	// delete
@@ -108,15 +110,14 @@ public class ProductDAO {
 	
 	public ProductDTO getProductDetail(ProductDTO productDTO) throws Exception {
 		
-		return productDTO;
+		return sqlSession.selectOne(NAMESPACE+"getProductDetail", productDTO);
+		
 	}
 	
 	
 	public List<ProductDTO> getProductList() throws Exception{
-		
-		ArrayList<ProductDTO> ar = new ArrayList<ProductDTO>();
-		
-		return ar;
+	
+		return sqlSession.selectList(NAMESPACE+"getProductList");
 	}
 	
 	
