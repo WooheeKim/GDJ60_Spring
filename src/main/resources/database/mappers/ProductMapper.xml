@@ -4,7 +4,7 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
   <mapper namespace="com.woo.s1.product.ProductDAO">
-  	<select id="getProductList" resultType="com.woo.s1.product.ProductDTO">
+  	<select id="getProductList" resultType="com.woo.s1.product.ProductDTO" statementType="PREPARED">
   		SELECT PRODUCTNUM, PRODUCTNAME, PRODUCTJUMSU
   		FROM PRODUCT
   		ORDER BY PRODUCTNUM DESC
@@ -13,5 +13,12 @@
   	<select id="getProductDetail" parameterType="com.woo.s1.product.ProductDTO" resultType="com.woo.s1.product.ProductDTO">
   		SELECT * FROM PRODUCT WHERE PRODUCTNUM=#{productNum}
   	</select>
-  
+  	
+  	<insert id="setAddProduct" parameterType="com.woo.s1.product.ProductDTO">
+  		INSERT INTO PRODUCT(PRODUCTNUM, PRODUCTNAME, PRODUCTDETAIL, PRODUCTJUMSU)
+  		VALUES (#{productNum}, #{productName}, #{productDetail}, 0.0)
+  	</insert>
+  	
+  	
+  	
   </mapper>

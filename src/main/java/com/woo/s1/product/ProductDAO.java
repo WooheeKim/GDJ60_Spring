@@ -123,23 +123,7 @@ public class ProductDAO {
 	
 	public int setAddProduct(ProductDTO productDTO) throws Exception {
 		
-		Connection connection = DBConnection.getConnection();
-		
-		String sql = "INSERT INTO PRODUCT (PRODUCTNUM, PRODUCTNAME, PRODUCTDETAIL, PRODUCTJUMSU) "
-				+ "VALUES (?, ?, ?, 0.0)";
-		
-		PreparedStatement st = connection.prepareStatement(sql);
-		
-		st.setInt(1, productDTO.getProductNum());
-		st.setString(2, productDTO.getProductName());
-		st.setString(3, productDTO.getProductDetail());
-//		st.setDouble(4, productDTO.getProductJumsu());
-		
-		int result = st.executeUpdate();
-		
-		DBConnection.disConnect(st, connection);
-		
-		return result;
+		return sqlSession.insert(NAMESPACE+"setAddProduct", productDTO);
 		
 	}
 	
