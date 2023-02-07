@@ -12,7 +12,7 @@
 </head>
 <body>
 	<h1>Member Login Page</h1><br>
-	
+	<hr>
 	<div class="col-6">
 	<table class="table table-hover">
 		<thead>
