@@ -23,27 +23,14 @@ public class ProductDAO {
 	
 	
 	// delete
-	public int setProductDelete(int productNum) throws Exception {
+	public int setProductDelete(Long productNum) throws Exception {
 		
 		return sqlSession.delete(NAMESPACE+"setProductDelete", productNum);
 	}
 	
-	public int getProductNum() throws Exception {
-		Connection connection = DBConnection.getConnection();
+	public Long getProductNum() throws Exception {
 		
-		String sql = "SELECT PRODUCT_SEQ.NEXTVAL FROM DUAL";
-		
-		PreparedStatement st = connection.prepareStatement(sql);
-		
-		ResultSet rs = st.executeQuery();
-		
-		rs.next();
-		
-		int num =  rs.getInt(1);
-		
-		DBConnection.disConnect(rs, st, connection);
-		
-		return num;
+		return sqlSession.selectOne(NAMESPACE+"getProductNum");
 		
 	}
 	
@@ -61,11 +48,11 @@ public class ProductDAO {
 		
 		while(rs.next()) {
 			ProductOptionDTO productOptionDTO = new ProductOptionDTO();
-			productOptionDTO.setOptionNum(rs.getInt("OPTIONNUM"));
-			productOptionDTO.setProductNum(rs.getInt("PRODUCTNUM"));
+			productOptionDTO.setOptionNum(rs.getLong("OPTIONNUM"));
+			productOptionDTO.setProductNum(rs.getLong("PRODUCTNUM"));
 			productOptionDTO.setOptionName(rs.getString("OPTIONNAME"));
-			productOptionDTO.setOptionPrice(rs.getInt("OPTIONPRICE"));
-			productOptionDTO.setOptionStock(rs.getDouble("OPTIONSTOCK"));
+			productOptionDTO.setOptionPrice(rs.getLong("OPTIONPRICE"));
+			productOptionDTO.setOptionStock(rs.getLong("OPTIONSTOCK"));
 			ar.add(productOptionDTO);
 		}
 		
@@ -82,10 +69,10 @@ public class ProductDAO {
 				+ "VALUES (PRODUCT_SEQ.NEXTVAL, ?, ?, ?, ?)";
 		
 		PreparedStatement st = connection.prepareStatement(sql);
-		st.setInt(1, productOptionDTO.getProductNum());
+		st.setLong(1, productOptionDTO.getProductNum());
 		st.setString(2, productOptionDTO.getOptionName());
-		st.setInt(3, productOptionDTO.getOptionPrice());
-		st.setDouble(4, productOptionDTO.getOptionStock());
+		st.setLong(3, productOptionDTO.getOptionPrice());
+		st.setLong(4, productOptionDTO.getOptionStock());
 		
 		int result = st.executeUpdate();
 		
@@ -107,9 +94,9 @@ public class ProductDAO {
 	}
 	
 	
-	public int setAddProduct(ProductDTO productDTO) throws Exception {
+	public int setProductAdd(ProductDTO productDTO) throws Exception {
 		
-		return sqlSession.insert(NAMESPACE+"setAddProduct", productDTO);
+		return sqlSession.insert(NAMESPACE+"setProductAdd", productDTO);
 		
 	}
 	

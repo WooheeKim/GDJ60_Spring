@@ -1,22 +1,22 @@
 package com.woo.s1.product;
 
 public class ProductOptionDTO {
-	private Integer optionNum;
-	private Integer productNum;
+	private Long optionNum;
+	private Long productNum;
 	private String optionName;
-	private Integer optionPrice;
-	private Double optionStock;
+	private Long optionPrice;
+	private Long optionStock;
 	
-	public Integer getOptionNum() {
+	public Long getOptionNum() {
 		return optionNum;
 	}
-	public void setOptionNum(Integer optionNum) {
+	public void setOptionNum(Long optionNum) {
 		this.optionNum = optionNum;
 	}
-	public Integer getProductNum() {
+	public Long getProductNum() {
 		return productNum;
 	}
-	public void setProductNum(Integer productNum) {
+	public void setProductNum(Long productNum) {
 		this.productNum = productNum;
 	}
 	public String getOptionName() {
@@ -25,18 +25,20 @@ public class ProductOptionDTO {
 	public void setOptionName(String optionName) {
 		this.optionName = optionName;
 	}
-	public Integer getOptionPrice() {
+	public Long getOptionPrice() {
 		return optionPrice;
 	}
-	public void setOptionPrice(Integer optionPrice) {
+	public void setOptionPrice(Long optionPrice) {
 		this.optionPrice = optionPrice;
 	}
-	public Double getOptionStock() {
+	public Long getOptionStock() {
 		return optionStock;
 	}
-	public void setOptionStock(Double optionStock) {
+	public void setOptionStock(Long optionStock) {
 		this.optionStock = optionStock;
 	}
+	
+	
 	
 	
 	

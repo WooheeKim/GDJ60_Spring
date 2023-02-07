@@ -46,13 +46,13 @@ public class ProductController {
 	
 	// void 방식
 	@RequestMapping(value = "productAdd", method = RequestMethod.GET)
-	public void productAdd() {
+	public void setProductAdd() {
 		// 자동으로 url 주소를 이용하여 jsp 파일을 찾아줌	
 	}
 	
 	@RequestMapping(value = "productAdd", method = RequestMethod.POST)
-	public String productAdd(ProductDTO productDTO) throws Exception {
-		int result = productService.setAddProduct(productDTO, null);
+	public String setProductAdd(ProductDTO productDTO) throws Exception {
+		int result = productService.setProductAdd(productDTO, null);
 		System.out.println(result==1);
 		return "redirect:./list";
 	}
