@@ -10,9 +10,14 @@
   	</select>
   	
   	<insert id="setMemberAdd" parameterType="MemberDTO">
-  		INSERT INTO MEMBER (ID, PW, NAME, ADDRESS, PHONE, EMAIL)
-  		VALUES (#{id}, #{pw}, #{name}, #{address}, #{phone}, #{email})
+  		INSERT INTO MEMBER (ID, PW, MEMBERNAME, MEMBERPHONE, EMAIL)
+  		VALUES (#{id}, #{pw}, #{name}, null, null)
   	</insert>
+  	
+  	<select id="getMemberList" parameterType="MemberDTO" resultType="com.woo.s1.member.MemberDTO">
+  		SELECT * FROM MEMBER
+  	</select>
+  		
   	
   	
   	

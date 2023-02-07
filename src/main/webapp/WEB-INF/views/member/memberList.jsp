@@ -23,16 +23,16 @@
 		</thead>
 		
 		<tbody>		
-			<c:forEach items="${login}" var="dto"> <!-- dto는 page영역에 담김 -->
+			<c:forEach items="${memberList}" var="dto"> <!-- dto는 page영역에 담김 -->
 				<tr>
-					<td><a href="./detail?id=${dto.id}">${pageScope.dto.id}</a></td>
-					<td>${dto.name}</td>
+					<td><a href="./page?id=${dto.id}">${pageScope.dto.id}</a></td>
+					<td>${dto.name}sadasd</td>
 				</tr>
 			</c:forEach>
 		</tbody>
 	</table>
 	
-		<a class="btn btn-danger" href="./join">로그인</a>
+		<a class="btn btn-danger" href="./memberJoin">로그인</a>
 	</div>
 	
 	
