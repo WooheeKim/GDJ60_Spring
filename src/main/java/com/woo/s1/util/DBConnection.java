@@ -14,7 +14,7 @@ public class DBConnection {
 		// 1. 연결 정보
 		String user = "user01";
 		String password = "user01";
-		String url = "jdbc:oracle:thin:@192.168.1.114:1521:xe";
+		String url = "jdbc:oracle:thin:@192.168.1.79:1521:xe";
 		String driver = "oracle.jdbc.driver.OracleDriver";
 		
 		// 2. Driver를 메모리에 로딩

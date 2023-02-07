@@ -1,3 +1,4 @@
+<%@page import="com.woo.s1.member.MemberDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -8,5 +9,9 @@
 </head>
 <body>
 	<h1>Member Page</h1>
+	
+	<h3>${requestScope.dto.id}</h3>
+	<h3>${dto.setMemberAdd()}</h3>
+	
 </body>
 </html>
