@@ -6,8 +6,8 @@ import java.sql.PreparedStatement;
 import com.woo.s1.util.DBConnection;
 
 public class MemberDAO {
-	// setAddMember
-	public int setAddMember(MemberDTO memberDTO) throws Exception {
+	// setMemberAdd
+	public int setMemberAdd(MemberDTO memberDTO) throws Exception {
 		
 		Connection connection = DBConnection.getConnection();
 		
@@ -30,24 +30,24 @@ public class MemberDAO {
 		return result;
 	}
 	
-	public static void main(String[] args) {
-		MemberDAO memberDAO = new MemberDAO();
-		MemberDTO memberDTO = new MemberDTO();
-		memberDTO.setId("ID1");
-		memberDTO.setPw("PW1");
-		memberDTO.setName("name1");
-		memberDTO.setAddress("address1");
-		memberDTO.setPhone("phone1");
-		memberDTO.setEmail("email1");
-		
-		try {
-			int result = memberDAO.setAddMember(memberDTO);
-			System.out.println(result == 1);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
+//	public static void main(String[] args) {
+//		MemberDAO memberDAO = new MemberDAO();
+//		MemberDTO memberDTO = new MemberDTO();
+//		memberDTO.setId("ID1");
+//		memberDTO.setPw("PW1");
+//		memberDTO.setName("name1");
+//		memberDTO.setAddress("address1");
+//		memberDTO.setPhone("phone1");
+//		memberDTO.setEmail("email1");
+//		
+//		try {
+//			int result = memberDAO.setAddMember(memberDTO);
+//			System.out.println(result == 1);
+//		} catch (Exception e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//	}
 	
 	
 }
