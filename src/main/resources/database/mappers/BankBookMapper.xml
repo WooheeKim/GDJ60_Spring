@@ -16,5 +16,9 @@
   		INSERT INTO BANKBOOK(BOOKNUMBER, BOOKNAME, BOOKRATE, BOOKSALE, BOOKDETAIL)
   		VALUES (#{bookNumber}, #{bookName}, #{bookRate}, #{bookSale}, #{bookDetail})
   	</insert>
+  	
+  	<delete id="setBankBookDelete" parameterType="BankBookDTO">
+  		DELETE BANKBOOK WHERER BOOKNUMBER=#{bookNumber}
+  	</delete>
   
   </mapper>
