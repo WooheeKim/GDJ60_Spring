@@ -5,11 +5,12 @@
   
   <mapper namespace="com.woo.s1.bankBook.BankBookDAO">
   	<select id="getBankBookList" resultType="BankBookDTO">
-  		SELECT BANKBOOK_SEQ.NEXTVAL FROM DUAL
+  		SELECT BOOKNAME, BOOKRATE
+  		FROM BANKBOOK
   	</select>
   
   	<select id="getBankBookDetail" parameterType="BankBookDTO" resultType="com.woo.s1.bankBook.BankBookDTO">
-  		SELECT * FROM BANKBOOK
+  		SELECT * FROM BANKBOOK WHERE BOOKNUMBER=#{bookNum}
   	</select>
   	
   	<insert id="setBankBookAdd" parameterType="BankBookDTO">
