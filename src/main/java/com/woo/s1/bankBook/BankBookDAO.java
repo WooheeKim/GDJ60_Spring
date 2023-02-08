@@ -13,21 +13,15 @@ public class BankBookDAO {
 	private final String NAMESPACE="com.woo.s1.bankBook.BankBookDAO.";
 	
 	public List<BankBookDTO> getBankBookList() throws Exception {
-		
 		return sqlSession.selectList(NAMESPACE+"getBankBookList");
-		
 	}
 	
 	public BankBookDTO getBankBookDetail(BankBookDTO bankBookDTO) throws Exception {
-		
 		return sqlSession.selectOne(NAMESPACE+"getBankBookDetail", bankBookDTO);
-		
 	}
 	
 	public int setBankBookAdd(BankBookDTO bankBookDTO) throws Exception {
-		
 		return sqlSession.insert(NAMESPACE+"setBankBookAdd", bankBookDTO);
-		
 	}
 	
 	public int setBankBookUpdate(BankBookDTO bankBookDTO) throws Exception {

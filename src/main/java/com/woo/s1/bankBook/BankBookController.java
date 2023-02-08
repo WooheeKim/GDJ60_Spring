@@ -15,27 +15,28 @@ public class BankBookController {
 	@Autowired
 	private BankBookService bankBookService;
 	
+	// list
 	@RequestMapping(value = "list", method = RequestMethod.GET)
-	public ModelAndView getBankBookList(ModelAndView modelAndView) throws Exception {
+	public ModelAndView getBankBookList() throws Exception {
+		ModelAndView modelAndView = new ModelAndView();
 		
 		List<BankBookDTO> ar = bankBookService.getBankBookList();
 		
-		System.out.println(ar.size()>0);
 		modelAndView.setViewName("bankBook/list");
 		modelAndView.addObject("list",ar);
 		
 		return modelAndView;
 		
 	}
-	
+	// detail
 	@RequestMapping(value = "detail", method = RequestMethod.GET)
-	public ModelAndView getBankBookDetail(ModelAndView modelAndView, BankBookDTO bankBookDTO) throws Exception {
+	public ModelAndView getBankBookDetail(BankBookDTO bankBookDTO) throws Exception {
+		ModelAndView modelAndView = new ModelAndView();
 		
 		bankBookDTO = bankBookService.getBankBookDetail(bankBookDTO);
 		
 		modelAndView.setViewName("bankBook/detail");
-		
-		modelAndView.addObject(bankBookDTO);
+		modelAndView.addObject("dto", bankBookDTO);
 		
 		return modelAndView;
 	}
@@ -57,7 +58,7 @@ public class BankBookController {
 		
 		return modelAndView;
 	}
-	
+	// delete
 	@RequestMapping(value = "delete", method = RequestMethod.GET)
 	public ModelAndView setBankBookDelete(BankBookDTO bankBookDTO) throws Exception {
 		ModelAndView modelAndView = new ModelAndView();
@@ -67,11 +68,18 @@ public class BankBookController {
 		
 		return modelAndView;
 	}
-	
-	@RequestMapping(value = "update")
-	public ModelAndView setBankBookUpdate() throws Exception {
+	// 수정 폼 이동
+	@RequestMapping(value = "update", method = RequestMethod.GET)
+	public ModelAndView setBankBookUpdate(BankBookDTO bankBookDTO) throws Exception {
 		ModelAndView modelAndView = new ModelAndView();
+		bankBookDTO = bankBookService.getBankBookDetail(bankBookDTO);
 		modelAndView.setViewName("bankBook/update");
+		modelAndView.addObject("dto", bankBookDTO);
+		return modelAndView;
+	}
+	
+	@RequestMapping(value = "update", method = RequestMethod.POST)
+	public ModelAndView setBankBookUpdate(BankBookDTO bankBookDTO, ModelAndView modelAndView) throws Exception {
 		return modelAndView;
 	}
 	

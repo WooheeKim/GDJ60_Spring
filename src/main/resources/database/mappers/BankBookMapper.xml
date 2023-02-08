@@ -4,22 +4,26 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
   <mapper namespace="com.woo.s1.bankBook.BankBookDAO">
+  
   	<select id="getBankBookList" resultType="BankBookDTO">
-  		SELECT BOOKNAME, BOOKRATE
-  		FROM BANKBOOK
+  		SELECT * FROM BANKBOOK
   	</select>
   
-  	<select id="getBankBookDetail" parameterType="BankBookDTO" resultType="com.woo.s1.bankBook.BankBookDTO">
-  		SELECT * FROM BANKBOOK WHERE BOOKNUMBER=#{bookNum}
+  	<select id="getBankBookDetail" parameterType="BankBookDTO" resultType="BankBookDTO">
+  		SELECT * FROM BANKBOOK WHERE BOOKNUMBER=#{bookNumber}
   	</select>
   	
   	<insert id="setBankBookAdd" parameterType="BankBookDTO">
   		INSERT INTO BANKBOOK(BOOKNUMBER, BOOKNAME, BOOKRATE, BOOKSALE, BOOKDETAIL)
-  		VALUES (#{bookNumber}, #{bookName}, #{bookRate}, #{bookSale}, #{bookDetail})
+  		VALUES (BANKBOOK_SEQ.NEXTVAL, #{bookName}, #{bookRate}, #{bookSale}, #{bookDetail})
   	</insert>
   	
   	<delete id="setBankBookDelete" parameterType="BankBookDTO">
-  		DELETE BANKBOOK WHERER BOOKNUMBER=#{bookNumber}
+  		DELETE BANKBOOK WHERE BOOKNUMBER=#{bookNumber}
   	</delete>
+  	
+  	<!-- <update id="setBankBookUpdate" parameterType="BankBookDTO">
+  		UPDATE BANKBOOK SET 
+  	</update> -->
   
   </mapper>

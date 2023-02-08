@@ -35,5 +35,6 @@
 		</tbody>
 	</table>
 	
+	<a href="./add">상품등록</a>
 </body>
 </html>

@@ -4,9 +4,10 @@ public class BankBookDTO {
 	
 	private Long bookNumber;
 	private String bookName;
+	private String bookDetail;
 	private Double bookRate;
 	private Long bookSale;
-	private String bookDetail;
+	
 	
 	public Long getBookNumber() {
 		return bookNumber;
