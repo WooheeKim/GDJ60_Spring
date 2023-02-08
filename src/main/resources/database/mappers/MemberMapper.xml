@@ -5,8 +5,8 @@
   
   <mapper namespace="com.woo.s1.member.MemberDAO">
   	
-  	<select id="getMemberDetail" parameterType="MemberDTO" resultType="com.woo.s1.member.MemberDTO">
-  		
+  	<select id="getMemberDetail" parameterType="MemberDTO" resultType="MemberDTO">
+  		SELECT * FROM MEMBER WHERE ID=#{id}
   	</select>
   	
   	<insert id="setMemberAdd" parameterType="MemberDTO">
@@ -14,13 +14,8 @@
   		VALUES (#{id}, #{pw}, #{name}, null, null)
   	</insert>
   	
-  	<select id="getMemberList" parameterType="MemberDTO" resultType="com.woo.s1.member.MemberDTO">
+  	<select id="getMemberList" resultType="MemberDTO">
   		SELECT * FROM MEMBER
   	</select>
-  		
-  	
-  	
-  	
-  	
   	
   </mapper>

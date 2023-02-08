@@ -15,10 +15,15 @@ public class MemberService {
 		return memberDAO.setMemberAdd(memberDTO);
 	}
 	
+	
 	public List<MemberDTO> getMemberList() throws Exception {
 		
 		return memberDAO.getMemberList();
 		
+	}
+	
+	public MemberDTO getMemberDetail(MemberDTO memberDTO) throws Exception {
+		return memberDAO.getMemberDetail(memberDTO);
 	}
 	
 }

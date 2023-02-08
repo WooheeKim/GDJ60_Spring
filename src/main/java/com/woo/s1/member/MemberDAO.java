@@ -17,8 +17,6 @@ public class MemberDAO {
 	private SqlSession sqlSession;
 	private final String NAMESPACE="com.woo.s1.member.MemberDAO.";
 	
-	
-	
 	public MemberDTO getMemberDetail(MemberDTO memberDTO) throws Exception {
 	
 		return sqlSession.selectOne(NAMESPACE+"getMemberDetail", memberDTO);
