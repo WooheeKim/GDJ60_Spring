@@ -22,8 +22,9 @@
   		DELETE BANKBOOK WHERE BOOKNUMBER=#{bookNumber}
   	</delete>
   	
-  	<!-- <update id="setBankBookUpdate" parameterType="BankBookDTO">
-  		UPDATE BANKBOOK SET 
-  	</update> -->
+  	<update id="setBankBookUpdate" parameterType="BankBookDTO">
+  		UPDATE BANKBOOK SET BOOKNAME=#{bookName}, BOOKRATE=#{bookRate}, BOOKDETAIL=#{bookDetail}, BOOKSALE=#{bookSale}
+  		WHERE BOOKNUMBER=#{bookNumber}
+  	</update>
   
   </mapper>

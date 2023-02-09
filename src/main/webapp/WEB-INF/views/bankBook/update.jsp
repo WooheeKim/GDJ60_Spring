@@ -10,6 +10,7 @@
 	<h1>상품수정 Page</h1>
 	
 	<form action="./update" method="post">
+		<input type="hidden" name="bookNumber" value="${dto.bookNumber}"><br>
 		<input type="text" name="bookName" value="${dto.bookName}" placeholder="제품명을 입력해주세요"><br>
 		<input type="text" name="bookRate" value="${dto.bookRate}"><br>
 		<textarea name="bookDetail" rows="" cols="">${dto.bookDetail}</textarea><br>
