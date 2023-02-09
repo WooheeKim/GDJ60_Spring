@@ -62,7 +62,7 @@ public class BankBookController {
 	@RequestMapping(value = "delete", method = RequestMethod.GET)
 	public ModelAndView setBankBookDelete(BankBookDTO bankBookDTO) throws Exception {
 		ModelAndView modelAndView = new ModelAndView();
-		int result = bankBookService.setBankBookDelete(bankBookDTO);
+//		int result = bankBookService.setBankBookDelete(bankBookDTO);
 		
 		modelAndView.setViewName("redirect:./list");
 		

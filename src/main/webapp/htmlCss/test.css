@@ -1,0 +1,39 @@
+/* * {
+    color: red;
+} */
+
+h1 {
+    color: aqua;
+}
+
+#id1 {
+    color: violet;
+}
+
+.c1 {
+    color: springgreen;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.c2 {
+    width: 200px;
+    height: 200px;
+    background-color: bisque;
+}
+/* 자손 선택자 */
+.c2 > p {
+    color: teal;
+}
+/* 후손 선택자 */
+.c2 > p {
+    color: chocolate;
+}   text-decoration: overline;
+
+.c2 > div > p {
+
+    text-decoration: underline;
+}
