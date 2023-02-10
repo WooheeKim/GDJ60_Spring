@@ -13,7 +13,7 @@
 	<div>
 		<img class="iu2" alt="iu2" src="../resources/images/IU2.jpg">
 	</div>
-	<table class="tbl">
+	<table class="tbl2">
 		<thead>
 			<tr>
 				<th>상품명</th>

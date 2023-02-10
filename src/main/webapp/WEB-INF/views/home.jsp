@@ -11,7 +11,7 @@
 <h1>
 	Hello world!  
 </h1>
-<class href = "./product/list?num=1&num=2&num=3" class="menu">product List</a>
+<a href = "./product/list?num=1&num=2&num=3" class="menu">product List</a>
 <a href = "/product/list" class="menu">product List</a>
 <a href = "./member/memberLogin" class="menu">member Login</a>
 <a href = "/bankBook/list" class="menu">BankBook List</a>
