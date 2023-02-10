@@ -1,6 +1,14 @@
 .tbl {
     width: 70%;
     margin: 0px auto;
+    border: 1px solid black;
+    border-spacing: 0px;
+    border-collapse: collapse;
+}
+
+.tbl th, .tbl td {
+    border: 1px solid black;
+    height: 40px;
 }
 
 .title {
@@ -11,6 +19,11 @@
 .iu2 {
     width: 50%;
     margin: 0 auto;
+}
+
+.tbl_td {
+    
+    text-align: center;
 }
 
 

@@ -13,7 +13,7 @@
 	<div>
 		<img class="iu2" alt="iu2" src="../resources/images/IU2.jpg">
 	</div>
-	<table class="tbl" border="1">
+	<table class="tbl">
 		<thead>
 			<tr>
 				<th>상품명</th>
@@ -25,8 +25,8 @@
 			<c:forEach items="${list}" var="dto">
 				<tr>
 					<td><a href="./detail?bookNumber=${dto.bookNumber}">${pageScope.dto.bookName}</a></td>
-					<td>${pageScope.dto.bookRate}</td>
-					<td>
+					<td class="tbl_td">${pageScope.dto.bookRate}</td>
+					<td class="tbl_td">
 						<c:choose>
 							<c:when test="${dto.bookSale eq 1}">판매중</c:when>
 							<c:otherwise>판매중단</c:otherwise>
