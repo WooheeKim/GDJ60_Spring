@@ -5,6 +5,8 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+	<link rel="stylesheet" href="./resources/css/reset.css">
+	<link rel="stylesheet" href="./resources/css/main.css">
 </head>
 <body>
 	<header>
