@@ -1,28 +1,34 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-<link rel="stylesheet" href="/resources/css/reset.css">
-<link rel="stylesheet" href="/resources/css/main.css">
-<link rel="stylesheet" href="/resources/css/table.css">
+	<meta charset="UTF-8">
+	<title>회원가입</title>
+	<c:import url="../template/common_css.jsp"></c:import>
+	<link rel="stylesheet" href="/resources/css/table.css">
 </head>
 <body>
 	<c:import url="../template/header.jsp"></c:import>
-	<h1>Member Join Page</h1>
 	
-	<div class="col-6">
-		<form action="./join" method="post">
-			아이디
-			<input type="text" name="id" value="test"><br>
-			비밀번호
-			<input type="password" name="pw"><br>
-			
-			<button type="submit">회원가입</button>
-			
-		</form>
+	<div class="container-fluid my-5">
+		<div class="row mb-4">
+			<h1 class="col-md-5 mx-auto text-center border-bottom border-dark-pb-3">회원가입 페이지</h1>
+		</div>
+	
+	<form action="./join" method="post">
+	  	<div class="col-md-4 mb-3">
+	    	<label for="exampleId" class="form-label">아이디</label>
+	    	<input type="text" class="form-control" name="exampleId" placeholder="사용 할 아이디를 입력해주세요">
+  		</div>
+  		<div class="col-md-4 mb-3">
+		    <label for="examplePassword" class="form-label">패스워드</label>
+		    <input type="password" class="form-control" name="examplePw" placeholder="사용 할 패스워드를 입력해주세요">
+  		</div>
+  		<button type="submit" class="btn btn-primary">회원가입</button>
+	</form>
 	</div>
+	<c:import url="../template/common_js.jsp"></c:import>
 </body>
 </html>
