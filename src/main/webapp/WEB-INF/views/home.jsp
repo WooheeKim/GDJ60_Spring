@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Home</title>
+	<title>홈</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<c:import url="./template/common_css.jsp"></c:import>
 </head>
@@ -37,7 +37,9 @@
 	</div>
 	</div>
 </div>
-	
+<div>
+	<h1>${member.name}</h1>
+</div>	
 	
 	<c:import url="./template/common_js.jsp"></c:import>
 </body>

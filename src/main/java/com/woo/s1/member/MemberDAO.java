@@ -1,53 +1,34 @@
 package com.woo.s1.member;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
+import java.util.List;
 
-import com.woo.s1.util.DBConnection;
+import org.apache.ibatis.session.SqlSession;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public class MemberDAO {
-	// setMemberAdd
+	@Autowired
+	private SqlSession sqlSession;
+	private final String NAMESPACE="com.woo.s1.member.MemberDAO.";
+	
 	public int setMemberAdd(MemberDTO memberDTO) throws Exception {
-		
-		Connection connection = DBConnection.getConnection();
-		
-		String sql = "INSERT INTO MEMBER (ID, PW, NAME, ADDRESS, PHONE, EMAIL)"
-				+ " VALUES (?, ?, ?, ?, ?, ?)";
-		
-		PreparedStatement st = connection.prepareStatement(sql);
-		
-		st.setString(1, memberDTO.getId());
-		st.setString(2, memberDTO.getPw());
-		st.setString(3, memberDTO.getName());
-		st.setString(4, memberDTO.getAddress());
-		st.setString(5, memberDTO.getPhone());
-		st.setString(6, memberDTO.getEmail());
-		
-		int result = st.executeUpdate();
-		
-		DBConnection.disConnect(st, connection);
-		
-		return result;
+		return sqlSession.insert(NAMESPACE+"setMemberAdd", memberDTO);
 	}
 	
-//	public static void main(String[] args) {
-//		MemberDAO memberDAO = new MemberDAO();
-//		MemberDTO memberDTO = new MemberDTO();
-//		memberDTO.setId("ID1");
-//		memberDTO.setPw("PW1");
-//		memberDTO.setName("name1");
-//		memberDTO.setAddress("address1");
-//		memberDTO.setPhone("phone1");
-//		memberDTO.setEmail("email1");
-//		
-//		try {
-//			int result = memberDAO.setAddMember(memberDTO);
-//			System.out.println(result == 1);
-//		} catch (Exception e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-//	}
+	public int setMemberRoleAdd(MemberDTO memberDTO) throws Exception {
+		return sqlSession.insert(NAMESPACE+"setMemberRoleAdd", memberDTO);
+	}
 	
+	public MemberDTO getMemberLogin(MemberDTO memberDTO) throws Exception {
+		return sqlSession.selectOne(NAMESPACE+"getMemberLogin", memberDTO);
+	}
 	
+	public int setMemberPage(MemberDTO memberDTO) throws Exception {
+		return sqlSession.insert(NAMESPACE+"setMemberPage", memberDTO);
+	}
+	
+	public MemberDTO setMemberUpdate(MemberDTO memberDTO) throws Exception {
+		return (MemberDTO) sqlSession.selectList(NAMESPACE+"setMemberUpdate", memberDTO);
+	}
 }
