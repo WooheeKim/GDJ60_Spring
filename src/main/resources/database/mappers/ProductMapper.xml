@@ -13,7 +13,7 @@
   		ORDER BY PRODUCTNUM DESC
   	</select>
   	
-  	<select id="getProductDetail" parameterType="ProductDTO" resultType="com.woo.s1.product.ProductDTO">
+  	<select id="getProductDetail" parameterType="ProductDTO" resultType="ProductDTO">
   		SELECT * FROM PRODUCT WHERE PRODUCTNUM=#{productNum}
   	</select>
   	
@@ -25,6 +25,5 @@
   	<delete id="setProductDelete" parameterType="Long">
   		DELETE PRODUCT WHERE PRODUCTNUM=#{productNum}
   	</delete>
-  	
   	
   </mapper>

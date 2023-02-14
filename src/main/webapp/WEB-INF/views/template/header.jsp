@@ -21,7 +21,7 @@
 			<li class="nav-item"><a class="nav-link" href="/member/memberAdd">JOIN</a></li>
 			</c:if>
 			<c:if test="${not empty member}">		
-			<li class="nav-item"><a class="nav-link" href="/member/memberMypage">MYPAGE</a></li>
+			<li class="nav-item"><a class="nav-link" href="/member/memberPage">MYPAGE</a></li>
 			<li class="nav-item"><a class="nav-link" href="/member/memberLogout">LOGOUT</a></li>
 			</c:if>
 			<li class="nav-item"><a class="nav-link" href="#">KO</a></li>

@@ -6,7 +6,6 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.sql.DataSource;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -83,23 +82,17 @@ public class ProductDAO {
 	
 	public ProductDTO getProductDetail(ProductDTO productDTO) throws Exception {
 		
-		return sqlSession.selectOne(NAMESPACE+"getProductDetail", productDTO);
-		
+		return sqlSession.selectOne(NAMESPACE+"getProductDetail", productDTO);		
 	}
-	
 	
 	public List<ProductDTO> getProductList() throws Exception{
 	
 		return sqlSession.selectList(NAMESPACE+"getProductList");
 	}
-	
-	
+		
 	public int setProductAdd(ProductDTO productDTO) throws Exception {
 		
-		return sqlSession.insert(NAMESPACE+"setProductAdd", productDTO);
-		
+		return sqlSession.insert(NAMESPACE+"setProductAdd", productDTO);		
 	}
-	
-	
 	
 }

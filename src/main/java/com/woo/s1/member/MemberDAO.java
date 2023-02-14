@@ -1,7 +1,5 @@
 package com.woo.s1.member;
 
-import java.util.List;
-
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -24,11 +22,7 @@ public class MemberDAO {
 		return sqlSession.selectOne(NAMESPACE+"getMemberLogin", memberDTO);
 	}
 	
-	public int setMemberPage(MemberDTO memberDTO) throws Exception {
-		return sqlSession.insert(NAMESPACE+"setMemberPage", memberDTO);
-	}
-	
-	public MemberDTO setMemberUpdate(MemberDTO memberDTO) throws Exception {
-		return (MemberDTO) sqlSession.selectList(NAMESPACE+"setMemberUpdate", memberDTO);
+	public int setMemberUpdate(MemberDTO memberDTO) throws Exception {
+		return sqlSession.update(NAMESPACE+"setMemberUpdate", memberDTO);
 	}
 }

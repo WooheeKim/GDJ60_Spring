@@ -20,9 +20,9 @@ public class MemberController {
 	
 	@RequestMapping(value = "memberAdd", method = RequestMethod.GET)
 	public ModelAndView setMemberAdd() throws Exception {
-		ModelAndView mv = new ModelAndView();
-		mv.setViewName("/member/memberAdd");
-		return mv;
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("/member/memberAdd");
+		return modelAndView;
 	}
 	
 	@RequestMapping(value = "memberAdd", method = RequestMethod.POST)
@@ -36,7 +36,7 @@ public class MemberController {
 	@RequestMapping(value = "memberLogin", method = RequestMethod.GET)
 	public ModelAndView getMemberLogin() throws Exception {
 		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.setViewName("/member/memberLogin");
+		modelAndView.setViewName("member/memberLogin");
 		return modelAndView;
 	}
 	
@@ -58,25 +58,30 @@ public class MemberController {
 		return modelAndView;
 	}
 	
-	@RequestMapping(value = "memberLogout", method = RequestMethod.GET)
+	@RequestMapping(value = "memberPage", method = RequestMethod.GET)
 	public ModelAndView getMemberPage() throws Exception {
 		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.setViewName("redirect:../");
+		modelAndView.setViewName("member/memberPage");
 		return modelAndView;
 	}
 	
 	@RequestMapping(value = "memberUpdate", method = RequestMethod.GET)
-	public ModelAndView setMemberUpdate() throws Exception {
+	public ModelAndView getMemberUpdate() throws Exception {
 		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.setViewName("/member/memberLogout");
+		modelAndView.setViewName("member/memberUpdate");
 		return modelAndView;
 	}
 	
 	@RequestMapping(value = "memberUpdate", method = RequestMethod.POST)
-	public ModelAndView setMemberUpdate(MemberDTO memberDTO) throws Exception {
+	public ModelAndView getMemberUpdate(MemberDTO memberDTO, HttpSession session) throws Exception {
 		ModelAndView modelAndView = new ModelAndView();
-		memberDTO = memberService.setMemberUpdate(memberDTO);
-		modelAndView.setViewName("redirect:../memberMypage");
+		MemberDTO sessionMemberDTO = (MemberDTO)session.getAttribute("member");
+		memberDTO.setId(sessionMemberDTO.getId());
+		int result = memberService.setMemberUpdate(memberDTO);
+		if(result>0) {
+			session.setAttribute("member", memberDTO);
+		}
+		modelAndView.setViewName("redirect:./memberPage");
 		return modelAndView;
 	}
 }

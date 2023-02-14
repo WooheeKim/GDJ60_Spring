@@ -7,7 +7,6 @@ public class ProductDTO {
 	private String productDetail;
 	private Double productJumsu;
 	
-	
 	public Long getProductNum() {
 		return productNum;
 	}

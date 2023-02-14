@@ -9,7 +9,6 @@
   		<typeAlias type="com.woo.s1.member.MemberDTO" alias="MemberDTO" />
   		<typeAlias type="com.woo.s1.member.RoleDTO" alias="RoleDTO" />
   		<typeAlias type="com.woo.s1.bankBook.BankBookDTO" alias="BankBookDTO"/>
-  		<typeAlias type="java.lang.Long" alias="Long"/>
-  		
+  		<typeAlias type="java.lang.Long" alias="Long"/>	
   	</typeAliases>
   </configuration>

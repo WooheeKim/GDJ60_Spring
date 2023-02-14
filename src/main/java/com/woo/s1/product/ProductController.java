@@ -60,9 +60,9 @@ public class ProductController {
 	// ModelAndView 방식 
 	@RequestMapping(value = "update")
 	public ModelAndView update() {
-		ModelAndView mv = new ModelAndView();
-		mv.setViewName("product/productUpdate");
-		return mv;
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("product/productUpdate");
+		return modelAndView;
 	}
 	
 }

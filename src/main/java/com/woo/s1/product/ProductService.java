@@ -27,13 +27,11 @@ public class ProductService {
 		if(ar != null) {
 		
 			for(ProductOptionDTO productOptionDTO:ar) {
-				productOptionDTO.setProductNum(productNum);
-				result = productDAO.setAddProductOption(productOptionDTO);
+					productOptionDTO.setProductNum(productNum);
+					result = productDAO.setAddProductOption(productOptionDTO);
 			}
 		}
 		return result;
 	}
-
-	
 
 }

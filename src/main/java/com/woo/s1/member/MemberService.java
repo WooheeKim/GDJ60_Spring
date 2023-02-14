@@ -1,7 +1,5 @@
 package com.woo.s1.member;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,13 +19,7 @@ public class MemberService {
 		return memberDAO.getMemberLogin(memberDTO);
 	}
 	
-	public int setMemberPage(MemberDTO memberDTO) throws Exception {
-		int result = memberDAO.setMemberPage(memberDTO);
-		result = memberDAO.setMemberPage(memberDTO);
-		return result;
-	}
-	
-	public MemberDTO setMemberUpdate(MemberDTO memberDTO) throws Exception {
+	public int setMemberUpdate(MemberDTO memberDTO) throws Exception {
 		return memberDAO.setMemberUpdate(memberDTO);
 	}
 }
