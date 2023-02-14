@@ -11,7 +11,6 @@
 <body>
 <c:import url="../template/header.jsp"></c:import>
 	<h1>My page</h1>
-<!-- ok -->
 	
 	
 <c:import url="../template/header.jsp"></c:import>
