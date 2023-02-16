@@ -1,7 +1,5 @@
 package com.woo.s1.member;
 
-import java.util.List;
-
 public class MemberDTO {
 	private String id;
 	private String pw;
@@ -9,14 +7,8 @@ public class MemberDTO {
 	private String address;
 	private String phone;
 	private String email;
-	private List<RoleDTO> roleDTOs;
-	
-	public List<RoleDTO> getRoleDTOs() {
-		return roleDTOs;
-	}
-	public void setRoleDTOs(List<RoleDTO> roleDTOs) {
-		this.roleDTOs = roleDTOs;
-	}
+	private RoleDTO roleDTO;
+		
 	public String getId() {
 		return id;
 	}
@@ -53,7 +45,12 @@ public class MemberDTO {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	
+	public RoleDTO getRoleDTO() {
+		return roleDTO;
+	}
+	public void setRoleDTO(RoleDTO roleDTO) {
+		this.roleDTO = roleDTO;
+	}
 	
 			
 }

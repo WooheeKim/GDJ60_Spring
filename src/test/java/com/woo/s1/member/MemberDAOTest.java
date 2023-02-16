@@ -15,7 +15,7 @@ public class MemberDAOTest extends MyTestCase {
 	@Test
 	public void setMemberAddTest() throws Exception {
 		MemberDTO memberDTO = new MemberDTO();
-		memberDTO.setId("shoemarker");
+		memberDTO.setId("sdafdsafsafddsfsadfdsa");
 		memberDTO.setPw("123123");
 		memberDTO.setName("shoe");
 		memberDTO.setAddress("gaebong");

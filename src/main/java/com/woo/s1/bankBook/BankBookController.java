@@ -8,8 +8,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.woo.s1.util.Pager;
+
 @Controller
-@RequestMapping(value = "/bankBook/*")
+@RequestMapping("/bankBook/*")
 public class BankBookController {
 	
 	@Autowired
@@ -17,14 +19,14 @@ public class BankBookController {
 	
 	// list
 	@RequestMapping(value = "list", method = RequestMethod.GET)
-	public ModelAndView getBankBookList() throws Exception {
+	public ModelAndView getBankBookList(Pager pager) throws Exception {
 		ModelAndView modelAndView = new ModelAndView();
 		
-		List<BankBookDTO> ar = bankBookService.getBankBookList();
+		List<BankBookDTO> ar = bankBookService.getBankBookList(pager);
 		
 		modelAndView.setViewName("bankBook/list");
-		modelAndView.addObject("list",ar);
-		
+		modelAndView.addObject("list", ar);
+		modelAndView.addObject("pager", pager);
 		return modelAndView;
 		
 	}
@@ -62,7 +64,7 @@ public class BankBookController {
 	@RequestMapping(value = "delete", method = RequestMethod.GET)
 	public ModelAndView setBankBookDelete(BankBookDTO bankBookDTO) throws Exception {
 		ModelAndView modelAndView = new ModelAndView();
-//		int result = bankBookService.setBankBookDelete(bankBookDTO);
+		int result = bankBookService.setBankBookDelete(bankBookDTO);
 		
 		modelAndView.setViewName("redirect:./list");
 		

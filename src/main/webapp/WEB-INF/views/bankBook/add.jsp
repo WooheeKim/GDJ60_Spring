@@ -15,7 +15,6 @@
 			<h1 class="col-md-7 mx-auto text-center border-bottom border-dark-pb-3">상품등록 페이지</h1>
 		</div>
 	
-	
 	<form class="col-md-7 mx-auto center" action="./add" method="post">
 		<div class="row mb-3">
    			<label for="bookName" class="col-sm-0 col-form-label">상품명</label>
@@ -36,6 +35,11 @@
   			<div class="col-sm-6">
    				<textarea name="bookDetail" class="form-control" id="bookRate" placeholder="제품명을 입력하세요"></textarea>
    			</div>
+		</div>
+		
+		<div class="row mb-3">
+   			<label for="files" class="form-label">이미지</label>
+  			<input type="file" class="form-control" id="files" name="pic">
 		</div>
 		
 		<fieldset>

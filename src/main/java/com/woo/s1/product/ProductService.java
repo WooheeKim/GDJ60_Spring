@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.woo.s1.util.Pager;
+
 @Service
 public class ProductService {
 	
@@ -15,8 +17,14 @@ public class ProductService {
 		return productDAO.getProductDetail(productDTO);
 	}
 	
-	public List<ProductDTO> getProductList() throws Exception {
-		return productDAO.getProductList();
+	public List<ProductDTO> getProductList(Pager pager) throws Exception {
+		
+		Long totalCount = productDAO.getProductCount(pager);
+		
+		pager.makeNum(totalCount);
+		pager.makeRow();
+		
+		return productDAO.getProductList(pager);
 	}
 	
 	public int setProductAdd(ProductDTO productDTO, List<ProductOptionDTO> ar) throws Exception {
@@ -27,13 +35,11 @@ public class ProductService {
 		if(ar != null) {
 		
 			for(ProductOptionDTO productOptionDTO:ar) {
-				productOptionDTO.setProductNum(productNum);
-				result = productDAO.setAddProductOption(productOptionDTO);
+					productOptionDTO.setProductNum(productNum);
+					result = productDAO.setAddProductOption(productOptionDTO);
 			}
 		}
 		return result;
 	}
-
-	
 
 }
