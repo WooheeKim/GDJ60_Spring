@@ -4,9 +4,43 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
   <mapper namespace="com.woo.s1.bankBook.BankBookDAO">
+  	<sql id="searchCondition">
+  		
+  		<if test="kind == 'contents'">
+  			WHERE BOOKDETAIL LIKE '%' || #{search} || '%'
+  		</if>
+  		
+  		<if test="kind == 'title'">
+  			WHERE BOOKNAME LIKE '%' || #{search} || '%'
+  		</if>  	
   	
-  	<select id="getBankBookCount" resultType="Long">
+  	</sql>
+  	
+  	<sql id="searchCondition2">
+  		WHERE  
+			<choose>
+				<when test="kind == 'contents'">
+					BOOKDETAIL
+				</when>
+				<otherwise>
+					BOOKNAME
+				</otherwise>
+			</choose>
+		LIKE '%' || #{search} || '%'
+  	
+  	</sql>
+  	
+  	<select id="getBankBookCount" parameterType="Pager" resultType="Long">
   		SELECT COUNT(BOOKNUMBER) FROM BANKBOOK
+  		<include refid="searchCondition"></include>
+  		<!-- <if test="kind == 'contents'">
+  			WHERE BOOKDETAIL LIKE '%' || #{search} || '%'
+  		</if>
+  		
+  		<if test="kind == 'title'">
+  			WHERE BOOKNAME LIKE '%' || #{search} || '%'
+  		</if> -->
+  		
   	</select>
   	
   	<select id="getBankBookList" parameterType="Pager" resultType="BankBookDTO">
@@ -15,6 +49,9 @@
 				SELECT ROWNUM R, B.* FROM
 					(
 						SELECT * FROM BANKBOOK
+						<include refid="searchCondition"></include>
+						
+						
 						ORDER BY BOOKNUMBER DESC
 					) B
 			)

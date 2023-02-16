@@ -13,9 +13,9 @@
 </head>
 <body>
 	<c:import url="../template/header.jsp"></c:import>
-	<h1 class="col-md-7 mx-auto text-center border-bottom border-dark-pb-3">Product List Page</h1>
+	<h1 class="col-md-7 mx-auto text-center border-bottom border-dark-pb-3 mt-5">Product List Page</h1>
 	
-	<div class="row col-md-7 mx-auto">
+	<div class="row col-md-7 mx-auto mt-4">
 		<table class="table table-hover">
 			<thead>
 				<tr>
@@ -24,7 +24,7 @@
 				</tr>
 			</thead>
 			
-			<tbody>		
+			<tbody class="table-group-divider">		
 				<c:forEach items="${list}" var="dto"> <!-- dto는 page영역에 담김 -->
 					<tr>
 						<td><a href="./detail?productNum=${dto.productNum}">${pageScope.dto.productName}</a></td>
@@ -33,8 +33,65 @@
 				</c:forEach>
 			</tbody>
 		</table>
-		<div class="row col-md-7 mx-auto">
-			<a href="./productAdd" class="btn btn-primary col-2">상품등록</a>
+		
+		<!-- paging -->
+		<div class="row">
+			<nav aria-label="Page navigation example">
+				<ul class="pagination">
+					<li class="page-item">
+						<a class="page-link" href="./list?page=1" aria-label="Previous">
+							<span aria-hidden="true">&laquo;</span>
+						</a>									
+					</li>
+					
+					<li class="page-item ${pager.before?'disabled':''}">
+						<a class="page-link" href="./list?page=${pager.startNum-1}" aria-label="Previous">
+							<span aria-hidden="true">&lsaquo;</span>
+						</a>
+					</li>
+					
+					<c:forEach begin="${pager.startNum}" end="${pager.lastNum}" var="i">
+						<li class="page-item"><a class="page-link" href="./list?page=${i}&kind=${pager.kind}&search=${pager.search}">${i}</a></li>
+					</c:forEach>
+					
+					<li class="page-item ${pager.after eq false ? 'disabled':''}">
+						<a class="page-link" href="./list?page=${pager.lastNum+1}" aria-label="Next">
+							<span aria-hidden="true">&rsaquo;</span>
+						</a>
+					</li>
+					
+					<li class="page-item">
+						<a class="page-link" href="./list?page=${pager.totalPage}" aria-label="Next">
+							<span aria-hidden>&raquo;</span>
+						</a>
+					</li>
+				</ul>
+			</nav>	
+		</div>
+		
+		<!-- 검색창 -->
+		<div class="row">
+			<form class="row g-3" action=".productList" method="get">
+				<div class="col-auto">
+					<label for="kind" class="visually-hidden">Kind</label>
+					<select>
+						<option></option>
+						<option></option>
+					</select>
+				</div>
+				<div>
+					<label></label>
+					<input>					
+				</div>
+				<div>
+					<button></button>
+				</div>
+			</form>
+		</div>
+		
+		
+		<div class="mb-3">
+			<a href="./productAdd" class="btn btn-primary col-3">상품등록</a>
 		</div>
 	</div>
 	<c:import url="../template/common_js.jsp"></c:import>

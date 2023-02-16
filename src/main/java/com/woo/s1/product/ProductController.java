@@ -9,23 +9,25 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.woo.s1.util.Pager;
+
 @Controller
-@RequestMapping(value = "/product/*")
+@RequestMapping("/product/*")
 public class ProductController {
 	
 	@Autowired
 	private ProductService productService;
 	
 	@RequestMapping(value = "list")
-	public ModelAndView getProductList(ModelAndView modelAndView) throws Exception {
-//		ModelAndView modelAndView = new ModelAndView();
+	public ModelAndView getProductList(Pager pager) throws Exception {
+		ModelAndView modelAndView = new ModelAndView();
 		
-		List<ProductDTO> ar = productService.getProductList();
+		List<ProductDTO> ar = productService.getProductList(pager);
 		
 		System.out.println(ar.size()>0);
 		modelAndView.setViewName("product/productList"); // jsp 설정
 		modelAndView.addObject("list", ar); // list 변수 jsp로 보냄 attribute랑 같은 역할
-		
+		modelAndView.addObject("pager", pager);
 		return modelAndView; 
 	}
 	
