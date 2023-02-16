@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-02-14T08:18:43.940Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36" etag="ni587yH84kYKZftF-o14" version="20.8.18" type="github" pages="3">
+<mxfile host="app.diagrams.net" modified="2023-02-16T02:24:57.804Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36" etag="2K0FjF767y-HLvVKSVni" version="20.8.20" type="github" pages="3">
   <diagram name="페이지-1" id="GGqySA87024tkyD-t-VR">
     <mxGraphModel dx="1299" dy="786" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -245,11 +245,14 @@
         <mxCell id="3FN0IhYHKuZP2SUQt4Gz-16" value="Update" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=18;" parent="1" vertex="1">
           <mxGeometry x="-30" y="780" width="60" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="2goiukYs6qrbEKFFCPiK-1" value="내장 객체" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+        <mxCell id="2goiukYs6qrbEKFFCPiK-1" value="내장 객체" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="200" y="600" width="60" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="2goiukYs6qrbEKFFCPiK-2" value="page&lt;br&gt;Request, Response&lt;br&gt;Session&lt;br&gt;Application" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+        <mxCell id="2goiukYs6qrbEKFFCPiK-2" value="page&lt;br&gt;Request, Response&lt;br&gt;Session&lt;br&gt;Application" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="165" y="640" width="130" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="TGfAGujKioVRXWtO7ikP-1" value="Client" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+          <mxGeometry x="-440" y="200" width="120" height="120" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
