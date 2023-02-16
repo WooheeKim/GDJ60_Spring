@@ -5,7 +5,7 @@
   
   <mapper namespace="com.woo.s1.member.MemberDAO">
   	<insert id="setMemberAdd" parameterType="MemberDTO">
-  		INSERT INTO MEMBER (ID, PW, NAME, ADDRESS, PHONE, EMAIL)
+  		INSERT INTO MEMBER
   		VALUES (#{id}, #{pw}, #{name}, #{address}, #{phone}, #{email})
   	</insert>
   	
@@ -15,7 +15,7 @@
   	</insert>
   	
   	<select id="getMemberLogin" parameterType="MemberDTO" resultType="MemberDTO">
-  		SELECT ID FROM MEMBER WHERE ID=#{id} AND PW=#{pw}
+  		SELECT * FROM MEMBER WHERE ID=#{id}
   	</select>
   	
   	<update id="setMemberUpdate" parameterType="MemberDTO">

@@ -16,12 +16,13 @@
 		</div>
 		
 		<div class="row">
-			<h3>Name : ${member.name}</h3>
-			<h3>Phone : ${member.phone}</h3>
-			<h3>Email : ${member.email}</h3>
+			<h3>Name : ${dto.name}</h3>
+			<h3>Phone : ${dto.phone}</h3>
+			<h3>Email : ${dto.email}</h3>
 			<a href="./memberUpdate" class="btn btn-info">회원수정</a>
 		</div>
 	</div>
-<c:import url="../template/common_cs.jsp"></c:import>
+	
+<c:import url="../template/common_js.jsp"></c:import>
 </body>
 </html>

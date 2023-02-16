@@ -1,6 +1,5 @@
 package com.woo.s1.member;
 
-import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -29,6 +28,7 @@ public class MemberController {
 	public ModelAndView setMemberAdd(MemberDTO memberDTO) throws Exception {
 		ModelAndView modelAndView = new ModelAndView();
 		int result = memberService.setMemberAdd(memberDTO);
+		
 		modelAndView.setViewName("redirect:../");
 		return modelAndView;
 	}
@@ -36,7 +36,7 @@ public class MemberController {
 	@RequestMapping(value = "memberLogin", method = RequestMethod.GET)
 	public ModelAndView getMemberLogin() throws Exception {
 		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.setViewName("member/memberLogin");
+		modelAndView.setViewName("/member/memberLogin");
 		return modelAndView;
 	}
 	
@@ -44,8 +44,10 @@ public class MemberController {
 	public ModelAndView getMemberLogin(MemberDTO memberDTO, HttpServletRequest request) throws Exception {
 		ModelAndView modelAndView = new ModelAndView();
 		memberDTO = memberService.getMemberLogin(memberDTO);
-		HttpSession session = request.getSession();
-		session.setAttribute("member", memberDTO);
+		if(memberDTO != null) {
+			HttpSession session = request.getSession();
+			session.setAttribute("member", memberDTO);
+		}
 		modelAndView.setViewName("redirect:../");
 		return modelAndView;
 	}
@@ -59,16 +61,24 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value = "memberPage", method = RequestMethod.GET)
-	public ModelAndView getMemberPage() throws Exception {
+	public ModelAndView getMemberPage(HttpSession session) throws Exception {
 		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.setViewName("member/memberPage");
+		MemberDTO memberDTO = (MemberDTO)session.getAttribute("member");
+		
+		memberDTO = memberService.getMemberPage(memberDTO);
+		modelAndView.addObject("dto", memberDTO);
+		modelAndView.setViewName("/member/memberPage");
 		return modelAndView;
 	}
 	
 	@RequestMapping(value = "memberUpdate", method = RequestMethod.GET)
-	public ModelAndView getMemberUpdate() throws Exception {
+	public ModelAndView getMemberUpdate(HttpSession session) throws Exception {
 		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.setViewName("member/memberUpdate");
+		MemberDTO memberDTO = (MemberDTO)session.getAttribute("member");
+		
+		memberDTO = memberService.getMemberPage(memberDTO);
+		modelAndView.addObject("dto", memberDTO);
+		modelAndView.setViewName("/member/memberUpdate");
 		return modelAndView;
 	}
 	
@@ -78,9 +88,9 @@ public class MemberController {
 		MemberDTO sessionMemberDTO = (MemberDTO)session.getAttribute("member");
 		memberDTO.setId(sessionMemberDTO.getId());
 		int result = memberService.setMemberUpdate(memberDTO);
-		if(result>0) {
-			session.setAttribute("member", memberDTO);
-		}
+//		if(result>0) {
+//			session.setAttribute("member", memberDTO);
+//		}
 		modelAndView.setViewName("redirect:./memberPage");
 		return modelAndView;
 	}
