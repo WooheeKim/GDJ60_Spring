@@ -62,7 +62,7 @@
 					
 					<li class="page-item">
 						<a class="page-link" href="./list?page=${pager.totalPage}" aria-label="Next">
-							<span aria-hidden>&raquo;</span>
+							<span aria-hidden="true">&raquo;</span>
 						</a>
 					</li>
 				</ul>
@@ -71,20 +71,20 @@
 		
 		<!-- 검색창 -->
 		<div class="row">
-			<form class="row g-3" action=".productList" method="get">
+			<form class="row g-3" action="./list" method="get">
 				<div class="col-auto">
 					<label for="kind" class="visually-hidden">Kind</label>
-					<select>
-						<option></option>
-						<option></option>
+					<select class="form-select" name="kind" id="kind" aria-label="Default select example">
+						<option value="title">상품명</option>
+						<option value="contents">상품내용</option>
 					</select>
 				</div>
-				<div>
-					<label></label>
-					<input>					
+				<div class="col-auto">
+					<label for="search" class="visually-hidden">Search</label>
+					<input type="text" class="form-control" name="search" id="search" placeholder="검색어를 입력해주세요">					
 				</div>
-				<div>
-					<button></button>
+				<div class="col-auto">
+					<button type="submit" class="btn btn-primary mb-3">검색</button>
 				</div>
 			</form>
 		</div>
