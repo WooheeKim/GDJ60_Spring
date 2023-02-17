@@ -61,7 +61,7 @@ public class BankBookDAOTest extends MyTestCase {
 			BankBookDTO bankBookDTO = new BankBookDTO();		
 			bankBookDTO.setBookName("신한적금");
 			bankBookDTO.setBookRate(d);
-			bankBookDTO.setBookSale(1L);
+			bankBookDTO.setBookSale(1);
 		}
 		System.out.println("Finish");
 	}

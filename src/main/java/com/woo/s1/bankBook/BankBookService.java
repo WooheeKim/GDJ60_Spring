@@ -15,6 +15,8 @@ import com.woo.s1.util.Pager;
 public class BankBookService {
 	@Autowired
 	private BankBookDAO bankBookDAO;
+	// testcase 테스트시 Null이 들어옴
+	// API 추가
 	@Autowired
 	private ServletContext servletContext;
 	@Autowired
