@@ -40,7 +40,7 @@
 			</div>
 
 			<div>
-				<button class="btn btn-primary">회원가입</button>
+				<button id="agree" class="btn btn-primary">회원가입</button>
 			</div>
 		</div>
 	
