@@ -7,6 +7,19 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <c:import url="../template/common_css.jsp"></c:import>
+<style>
+	.redResult{
+		color: red;
+	}
+
+	.blueResult{
+		color: blue;
+	}
+
+	.greenResult{
+		color: green;
+	}
+</style>
 </head>
 <body>
 <c:import url="../template/header.jsp"></c:import>
@@ -15,7 +28,7 @@
 		<h1 class="col-md-6 text-center fw-bold">MemberJoin Page</h1>
 	</div>
 	<div class = "row justify-content-center">
-		<form class="col-md-6" action="./memberAdd" method="post">
+		<form class="col-md-6" id="frm" action="./memberAdd" method="post">
 		<div class="mb-3">
 			<label for="id" class="form-label fw-bold">아이디</label>
 			<input type="text" name="id" class="form-control" id="id" placeholder="아이디 입력">
@@ -59,7 +72,7 @@
 		</div>
 		
 		<div class="mb-3">
-				<button class="btn btn-outline-success fw-bold" type="submit" id="btn">등록</button>
+				<button class="btn btn-outline-success fw-bold" type="button" id="btn">등록</button>
 		</div>
 		</form>
 	</div>
