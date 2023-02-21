@@ -27,18 +27,23 @@
 		</div>
 		
 		<div class="mb-3">
+			<label for="pw" class="form-label fw-bold">비밀번호 확인</label> 
+			<input type="password" name="pw" class="form-control" id="pw" placeholder="비밀번호 재입력">
+		</div>
+		
+		<div class="mb-3">
 			<label for="name" class="form-label fw-bold">이름</label> 
 			<input type="text" name="name" class="form-control" id="name" placeholder="이름 입력">
 		</div>
 		
 		<div class="mb-3">
 			<label for="phone" class="form-label fw-bold">전화번호</label> 
-			<input type="tel" name="phone" class="form-control" id="phone" placeholder="010-OOOO-OOOO">
+			<input type="tel" name="phone" class="form-control" id="phone" placeholder="번호 입력">
 		</div>
 		
 		<div class="mb-3">
 			<label for="email" class="form-label fw-bold ">이메일</label> 
-			<input type="email" name="email" class="form-control" id="email" placeholder="example@gmail.com">
+			<input type="email" name="email" class="form-control" id="email" placeholder="이메일 입력">
 		</div>
 
 		
