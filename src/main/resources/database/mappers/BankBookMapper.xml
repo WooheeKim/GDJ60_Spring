@@ -71,7 +71,7 @@
   		<!-- Primary key -->
   		<id column="BOOKNUMBER" property="bookNumber"/>
   		<!-- 그외 나머지 -->
-  		<result column="BOOKNAME," property="bookName"/>
+  		<result column="BOOKNAME" property="bookName"/>
   		<result column="BOOKDETAIL" property="bookDetail"/>
   		<result column="BOOKRATE" property="bookRate"/>
   		<result column="BOOKSALE" property="bookSale"/>
