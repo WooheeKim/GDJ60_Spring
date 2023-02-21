@@ -48,14 +48,14 @@
 			<nav aria-label="Page navigation example">
 			  <ul class="pagination">
 			  	<li class="page-item">
-			      <a class="page-link" href="./list?page=1" aria-label="Previous">
+			      <a class="page-link" href="./list?page=1&kind=${pager.kind}&search=${pager.search}" aria-label="Previous">
 			        <span aria-hidden="true">&laquo;</span>
 			      </a>
 			    </li>
 			  
 			  
 			    <li class="page-item ${pager.before?'disabled':''}">
-			      <a class="page-link" href="./list?page=${pager.startNum-1}" aria-label="Previous">
+			      <a class="page-link" href="./list?page=${pager.startNum-1}&kind=${pager.kind}&search=${pager.search}" aria-label="Previous">
 			        <span aria-hidden="true">&lsaquo;</span>
 			      </a>
 			    </li>

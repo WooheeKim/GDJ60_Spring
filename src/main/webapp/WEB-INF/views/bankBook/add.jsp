@@ -15,7 +15,7 @@
 			<h1 class="col-md-7 mx-auto text-center border-bottom border-dark-pb-3">상품등록 페이지</h1>
 		</div>
 	
-	<form class="col-md-7 mx-auto center" action="./add" method="post">
+	<form class="col-md-7 mx-auto center" action="./add" method="post" enctype="multipart/form-data">
 		<div class="row mb-3">
    			<label for="bookName" class="col-sm-0 col-form-label">상품명</label>
    			<div class="col-sm-6">

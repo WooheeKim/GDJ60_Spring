@@ -6,8 +6,10 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<c:import url="../template/common_css.jsp"></c:import>
 </head>
 <body>
+	<c:import url="../template/header.jsp"></c:import>
 	<h1>Detail Page</h1>
 	<c:if test="${not empty dto}">
 		<h3>Num : ${dto.bookNumber}</h3>
@@ -15,6 +17,11 @@
 		<h3>Detail : ${dto.bookDetail}</h3>
 		<h3>Rate : ${dto.bookRate}</h3>
 		<h3>Sale : ${dto.bookSale}</h3>
+		<div>
+			<c:if test="${not empty dto.bankBookImgDTO}">
+				<img src="../resources/upload/bankBook/${dto.bankBookImgDTO.fileName}">
+			</c:if>
+		</div>
 		<a href="./delete?bookNumber=${dto.bookNumber}">상품삭제</a>
 	</c:if>
 	
@@ -24,6 +31,6 @@
 	<a href="./update?bookNumber=${dto.bookNumber}">상품수정</a>
 	<a href="./list">목록으로</a>
 	
-	
+<c:import url="../template/common_js.jsp"></c:import>
 </body>
 </html>
