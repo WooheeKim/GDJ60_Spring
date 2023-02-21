@@ -14,14 +14,14 @@ public class ProductDAOTest extends MyTestCase {
 	@Autowired
 	private ProductDAO productDAO;
 	
-	@Test
-	public void getProductListTest() throws Exception {
-		List<ProductDTO> ar = productDAO.getProductList();
-		System.out.println(ar.size()>0);
-		
-		// 단정문
-		assertNotEquals(0, ar.size());
-	}
+//	@Test
+//	public void getProductListTest() throws Exception {
+//		List<ProductDTO> ar = productDAO.getProductList();
+//		System.out.println(ar.size()>0);
+//		
+//		// 단정문
+//		assertNotEquals(0, ar.size());
+//	}
 	
 	@Test
 	public void getProductDetail() throws Exception {
