@@ -37,12 +37,14 @@
    			</div>
 		</div>
 		
-		<div class="row mb-3">
-   			<label for="files" class="form-label">이미지</label>
-  			<input type="file" class="form-control" id="files" name="pic">
+		<div id="fileList">
+			<!-- <div class="row mb-3">
+				<label for="files" class="form-label">이미지</label>
+				<input type="file" class="form-control" id="files" name="pic">
+			</div> -->
+			<button type="button" id="fileAdd">Add</button>
 		</div>
-		
-		<fieldset>
+		<!-- <fieldset>
 			<legend>판매여부</legend>
 			<label for="woo1">판매</label>
 			<input id="woo1" type="radio" checked="checked" name="bookSale" value="1">
@@ -55,14 +57,19 @@
 				<option value="1">판매</option>
 				<option value="0" selected="selected">판매중단</option>
 			</select>
-		</fieldset>
+		</fieldset> -->
 		<fieldset>
-			<input type="submit" value="등록">
+			<!-- <input type="submit" value="등록"> -->
 			<button type="submit">등록</button>
 		</fieldset>
 		
 		</form>
 	</div>
+		<script src="../resources/js/fileManager.js"></script>
+		<script>
+			setMax(3);
+			setParam('f');
+		</script>
 		<c:import url="../template/common_js.jsp"></c:import>
 </body>
 </html>

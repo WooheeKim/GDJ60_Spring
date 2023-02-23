@@ -17,6 +17,11 @@ public class MemberController {
 	@Autowired
 	private MemberService memberService;
 	
+	@RequestMapping(value = "memberAgree", method = RequestMethod.GET)
+	public void setMemberAgree() throws Exception {
+		
+	}
+	
 	@RequestMapping(value = "memberAdd", method = RequestMethod.GET)
 	public ModelAndView setMemberAdd() throws Exception {
 		ModelAndView modelAndView = new ModelAndView();
