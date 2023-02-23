@@ -3,12 +3,14 @@ package com.woo.s1.board.notice;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
+import org.springframework.stereotype.Repository;
 
 import com.woo.s1.board.BbsDTO;
 import com.woo.s1.board.BoardDAO;
 import com.woo.s1.board.BoardDTO;
 import com.woo.s1.util.Pager;
 
+@Repository
 public class NoticeDAO implements BoardDAO {
 	
 	private SqlSession sqlSession;

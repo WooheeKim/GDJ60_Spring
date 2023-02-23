@@ -4,12 +4,12 @@
   "https://mybatis.org/dtd/mybatis-3-config.dtd">
   
   <configuration>
-    <!-- <settings>
+<!--     <settings>
 
         <setting name="jdbcTypeForNull" value="NULL"/>
 
-    </settings> -->
-  	<typeAliases>
+    </settings> -->  	
+    <typeAliases>
   		<typeAlias type="com.woo.s1.product.ProductDTO" alias="ProductDTO" />
   		<typeAlias type="com.woo.s1.member.MemberDTO" alias="MemberDTO" />
   		<typeAlias type="com.woo.s1.member.RoleDTO" alias="RoleDTO" />
