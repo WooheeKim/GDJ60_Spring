@@ -1,5 +1,6 @@
 package com.woo.s1.board;
 
+// 중간 단계
 public class BoardDTO extends BbsDTO {
 	private String title;
 	private Long hit;

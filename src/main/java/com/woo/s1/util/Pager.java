@@ -2,6 +2,8 @@ package com.woo.s1.util;
 
 public class Pager {
 	
+	private Long bookNumber;
+	
 	// 검색 종류(사용할 column)
 	private String kind;
 	// 검색어
@@ -93,7 +95,20 @@ public class Pager {
 	}
 	
 	
+	public Long getPerPage() {
+		if(this.perPage==null || this.perPage==0) {
+			this.perPage=10L;
+		}
+		return perPage;
+	}
 	
+	public Long getBookNumber() {
+		return bookNumber;
+	}
+	
+	public void setBookNumber(Long bookNumber) {
+		this.bookNumber = bookNumber;
+	}
 	
 	public String getKind() {
 		return kind;
@@ -118,12 +133,7 @@ public class Pager {
 		return totalPage;
 	}
 
-	public Long getPerPage() {
-		if(this.perPage==null || this.perPage==0) {
-			this.perPage=10L;
-		}
-		return perPage;
-	}
+
 	
 	public Long getPerBlock() {
 		if(this.perBlock == null || this.perBlock<1) {

@@ -15,8 +15,8 @@
      	 <if test="kind == 'writer'">
      	 	WRITER LIKE '%'||#{search}||'%' 
      	 </if>
-     </trim>
-     </sql>
+      </trim>
+    </sql>
   	 
   	 <select id="getTotalCount" resultType="Long" parameterType="Pager">
   	 SELECT COUNT(NUM) FROM BANKBOOKCOMMENT

@@ -2,6 +2,7 @@ package com.woo.s1.board;
 
 import java.sql.Date;
 
+// 전체 게시판 종류의 공통 요소를 모은 DTO
 public class BbsDTO {
 	private Long num;
 	private String contents;

@@ -5,10 +5,36 @@
   
   <mapper namespace="com.woo.s1.board.notice.NoticeDAO">
   	
-  	<select id="getTotalCount" resultType="Long" parameterType="Pager">
+  	<sql id="noticeCondition">
+  		<where>
+  			<if test="kind=='title'">
+  				TITLE LIKE '%'||#{search}||'%'
+  			</if>
+  			<if test="kind=='contents'">
+  				CONTENTS LIKE '%'||#{search}||'%'
+  			</if>
+  			<if test="kind=='writer'">
+  				WRITER LIKE '%'||#{search}||'%'
+  			</if>
+  		</where>
+  	</sql>
+  
+  	<select id="getTotalCount" parameterType="pager" resultType="Long">
   		SELECT COUNT(NUM) FROM NOTICE
+  		<include refid="noticeCondition"></include>
   	</select>
   	
-  
+  	<select id="getBoardList" parameterType="Pager" resultType="NoticeDTO">
+	  	SELECT * FROM
+	  	(
+		  	SELECT ROWNUM R, N.* FROM
+		  		(
+			  		SELECT NUM, TITLE, CONTENTS, WRITER, REGDATE, HIT FROM NOTICE
+			  		<include refid="noticeCondition"></include>
+			  		ORDER BY NUM DESC
+		  		) N
+	  	)
+	  	WHERE R BETWEEN #{startRow} AND #{lastRow} 
+  	</select>
   
   </mapper>

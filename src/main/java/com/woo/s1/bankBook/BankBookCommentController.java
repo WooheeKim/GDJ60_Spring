@@ -13,7 +13,7 @@ import com.woo.s1.board.BbsService;
 import com.woo.s1.util.Pager;
 
 @Controller
-@RequestMapping("/bankBookComment/**")
+@RequestMapping("/bankBookComment/*")
 public class BankBookCommentController {
 	
 	@Autowired

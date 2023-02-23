@@ -19,6 +19,7 @@
 				<tr>
 					<th>NUM</th>
 					<th>TITLE</th>
+					<th>CONTENTS</th>
 					<th>WRITER</th>
 					<th>DATE</th>
 					<th>HIT</th>
@@ -28,7 +29,8 @@
 				<c:forEach items="${list}" var="dto">
 					<tr>
 						<td>${dto.num}</td>
-						<td>${dto.title}</td>
+						<td><a href="./detail">${dto.title}</a></td>
+						<td>${dto.contents}</td>
 						<td>${dto.writer}</td>
 						<td>${dto.regDate}</td>
 						<td>${dto.hit}</td>
@@ -87,14 +89,14 @@
 			  <div class="col-auto">
 			    <label for="kind" class="visually-hidden">Kind</label>
 			    <select class="form-select" name="kind" id="kind" aria-label="Default select example">
-					<option value="title">Title</option>
-					<option value="contents">Contents</option>
-					<option value="writer">Writer</option>
+					<option value="title" ${pager.kind eq 'title'? 'selected':''}>Title</option>
+					<option value="contents" ${pager.kind eq 'contents'? 'selected':''}>Contents</option>
+					<option value="writer" ${pager.kind eq 'writer'? 'selected':''}>Writer</option>
 				 </select>
 			 </div>
 			  <div class="col-auto">
 			    <label for="search" class="visually-hidden">Search</label>
-			    <input type="text" class="form-control" name="search" id="search" placeholder="검색어를 입력해주세요">
+			    <input type="text" class="form-control" value="${pager.search}" name="search" id="search" placeholder="검색어를 입력해주세요">
 			  </div>
 			  <div class="col-auto">
 			    <button type="submit" class="btn btn-primary mb-3">검색</button>
@@ -106,5 +108,8 @@
 
 <c:import url="../template/common_js.jsp"></c:import>
 <script src="../resources/js/paging.js"></script>
+<script>
+	setData('${pager.search}')
+</script>
 </body>
 </html>
