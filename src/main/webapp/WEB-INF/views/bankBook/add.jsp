@@ -38,10 +38,10 @@
 		</div>
 		
 		<div id="fileList">
-			<!-- <div class="row mb-3">
+			<div class="row mb-3">
 				<label for="files" class="form-label">이미지</label>
 				<input type="file" class="form-control" id="files" name="pic">
-			</div> -->
+			</div>
 			<button type="button" id="fileAdd">Add</button>
 		</div>
 		<!-- <fieldset>

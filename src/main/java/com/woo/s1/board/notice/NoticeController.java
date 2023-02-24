@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.woo.s1.board.BbsDTO;
@@ -46,8 +47,8 @@ public class NoticeController {
 	}
 	
 	@PostMapping("add")
-	public ModelAndView setBoardAdd(NoticeDTO noticeDTO) throws Exception {
-		ModelAndView modelAndView = new ModelAndView();		
+	public ModelAndView setBoardAdd(NoticeDTO noticeDTO, MultipartFile [] files) throws Exception {
+		ModelAndView modelAndView = new ModelAndView();
 		int result = noticeService.setBoardAdd(noticeDTO);
 		
 		String message = "등록 실패";

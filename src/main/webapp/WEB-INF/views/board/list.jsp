@@ -31,8 +31,14 @@
 			<tbody>
 				<c:forEach items="${list}" var="dto">
 					<tr>
-						<td>${dto.num}</td>
-						<td><a href="./detail?num=${dto.num}">${dto.title}</a></td>
+						<td>${dto.num}</td>						
+						<td>
+						<c:catch>
+							<!-- Notice에는 depth가 없어서 Exception 발생 -->
+							<!-- Exception처리 -->
+							<c:forEach begin="1" end="${dto.depth}" varStatus=">">--</c:forEach>
+						</c:catch>
+						<a href="./detail?num=${dto.num}">${dto.title}</a></td>
 						<td>${dto.contents}</td>
 						<td>${dto.writer}</td>
 						<td>${dto.regDate}</td>
@@ -107,6 +113,9 @@
 			</form>
 		</div>			
 	
+	<div class="row">
+		<a href="./add" class="btn btn-primary">글작성</a>
+	</div>
 </div>
 
 <c:import url="../template/common_js.jsp"></c:import>

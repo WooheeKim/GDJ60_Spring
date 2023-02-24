@@ -29,9 +29,9 @@
 	  	(
 		  	SELECT ROWNUM R, N.* FROM
 		  		(
-			  		SELECT NUM, TITLE, CONTENTS, WRITER, REGDATE, HIT FROM qna
+			  		SELECT NUM, TITLE, CONTENTS, WRITER, REGDATE, HIT, DEPTH FROM qna
 			  		<include refid="qnaCondition"></include>
-			  		ORDER BY NUM DESC
+			  		ORDER BY REF DESC, STEP ASC
 		  		) N
 	  	)
 	  	WHERE R BETWEEN #{startRow} AND #{lastRow} 
@@ -48,5 +48,15 @@
   		INSERT INTO QNA (NUM, TITLE, CONTENTS, WRITER, REGDATE, HIT, REF, STEP, DEPTH)
   		VALUES (#{num}, #{title}, #{contents}, #{writer}, sysdate, 0, #{num}, 0, 0)
   	</insert>
-  
+  	
+  	<update id="setStepUpdate" parameterType="QnaDTO">
+  		UPDATE QNA SET STEP = STEP + 1
+  		WHERE REF = #{ref} AND STEP > #{step} 
+  	</update>
+  	
+  	<insert id="setReplyAdd" parameterType="QnaDTO">
+  		INSERT INTO QNA (NUM, TITLE, CONTENTS, WRITER, REGDATE, HIT, REF, STEP, DEPTH)
+  		VALUES (QNA_SEQ.NEXTVAL, #{title}, #{contents}, #{writer}, sysdate, 0, #{ref}, #{step}, #{depth})
+  	</insert>
+  	
   </mapper>

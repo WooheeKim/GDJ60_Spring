@@ -3,7 +3,7 @@ const fileAdd = document.getElementById("fileAdd");
 
 let count = 0;
 let max = 5;
-let param = pic;
+let param = files;
 
 function setParam(p) {
     param = p;
@@ -13,13 +13,11 @@ function setMax(m) {
     max = m;
 }
 
-fileAdd.addEventListener('click', function() {
-
+fileAdd.addEventListener('click', function(){
     if(count>=max) {
         alert('첨부파일은 최대 '+max+'개입니다.');
         return;
-    } 
-
+    }
     count++;
 
     // Element, Text 생성
@@ -27,11 +25,15 @@ fileAdd.addEventListener('click', function() {
     let l = document.createElement('label'); // label
     let t = document.createTextNode('이미지');
     let i = document.createElement('input'); // input
+    let b = document.createElement('button'); // button
+    let x = document.createTextNode('X');
 
     // Element 조합
     d.appendChild(l);
     d.appendChild(i);
+    d.appendChild(b);
     l.appendChild(t);
+    b.appendChild(x);
 
     // attribute 생성 적용
     // div
@@ -65,5 +67,11 @@ fileAdd.addEventListener('click', function() {
     attr.value = param;
     i.setAttributeNode(attr);
 
+    // button
+    attr = document.createAttribute("type");
+    attr.value = "button"
+    b.setAttributeNode(attr);
+
     fileList.prepend(d);
 });
+

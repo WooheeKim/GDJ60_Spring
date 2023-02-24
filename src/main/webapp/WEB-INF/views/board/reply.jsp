@@ -16,7 +16,7 @@
 		</div>
 	
 	<form class="col-md-7 mx-auto center" action="./reply" method="post" enctype="multipart/form-data">
-		<input type="hidden" name="num" value="${qnaDTO.num}">
+		<input type="hidden" name="num" value="${boardDTO.num}">
 		<div class="row mb-3">
    			<label for="writer" class="col-sm-0 col-form-label">작성자</label>
    			<div class="col-sm-6">
