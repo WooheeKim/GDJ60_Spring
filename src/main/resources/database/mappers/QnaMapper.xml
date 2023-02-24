@@ -36,5 +36,17 @@
 	  	)
 	  	WHERE R BETWEEN #{startRow} AND #{lastRow} 
   	</select>
+  	
+  	<select id="getBoardDetail" parameterType="BoardDTO" resultType="NoticeDTO">
+  		SELECT * FROM NOTICE WHERE NUM=#{num}
+  	</select>
+  	
+  	<insert id="setBoardAdd" parameterType="BbsDTO">
+  		<selectKey keyProperty="num" resultType="Long" order="BEFORE">
+  			SELECT QNA_SEQ.NEXTVAL FROM DUAL
+  		</selectKey>
+  		INSERT INTO QNA (NUM, TITLE, CONTENTS, WRITER, REGDATE, HIT, REF, STEP, DEPTH)
+  		VALUES (#{num}, #{title}, #{contents}, #{writer}, sysdate, 0, #{num}, 0, 0)
+  	</insert>
   
   </mapper>

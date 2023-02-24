@@ -13,8 +13,9 @@ import com.woo.s1.util.Pager;
 
 @Service
 public class QnaService implements BoardService {
+	
 	@Autowired
-	private BbsDAO qnaDAO;
+	private QnaDAO qnaDAO;
 	
 	@Override
 	public List<BbsDTO> getBoardList(Pager pager) throws Exception {
@@ -22,14 +23,13 @@ public class QnaService implements BoardService {
 		
 		pager.makeNum(qnaDAO.getTotalCount(pager));
 		
-		return qnaDAO.getBoardList(pager);
-	
+		return qnaDAO.getBoardList(pager);	
 	}
 
 	@Override
 	public int setBoardAdd(BbsDTO bbsDTO) throws Exception {
 		// TODO Auto-generated method stub
-		return 0;
+		return qnaDAO.setBoardAdd(bbsDTO);
 	}
 
 	@Override
@@ -47,7 +47,7 @@ public class QnaService implements BoardService {
 	@Override
 	public BoardDTO getBoardDetail(BoardDTO boardDTO) throws Exception {
 		// TODO Auto-generated method stub
-		return null;
+		return qnaDAO.getBoardDetail(boardDTO);
 	}
 	
 }
