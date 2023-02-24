@@ -98,7 +98,7 @@ public class QnaController {
 		
 		modelAndView.setViewName("common/result");
 		modelAndView.addObject("result", message);
-		modelAndView.addObject("url","".detail?num="+qnaDTO message);
+		modelAndView.addObject("url",".detail?num="+qnaDTO.getNum());
 		return modelAndView;
 		
 	}
