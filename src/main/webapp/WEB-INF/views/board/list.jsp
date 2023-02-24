@@ -13,6 +13,9 @@
 <body>
 <c:import url="../template/header.jsp"></c:import>
 <div class="container-fluid">
+	<div class="row my-5">
+		<h1>${boardName} List</h1>
+	</div>
 	<div class="row">
 		<table class="table table-hover">
 			<thead>

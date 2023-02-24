@@ -3,9 +3,9 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
-  <mapper namespace="com.woo.s1.board.notice.NoticeDAO">
+  <mapper namespace="com.woo.s1.board.qna.QnaDAO">
   	
-  	<sql id="noticeCondition">
+  	<sql id="qnaCondition">
   		<where>
   			<if test="kind=='title'">
   				TITLE LIKE '%'||#{search}||'%'
@@ -20,23 +20,21 @@
   	</sql>
   
   	<select id="getTotalCount" parameterType="pager" resultType="Long">
-  		SELECT COUNT(NUM) FROM NOTICE
-  		<include refid="noticeCondition"></include>
+  		SELECT COUNT(NUM) FROM Qna
+  		<include refid="qnaCondition"></include>
   	</select>
   	
-  	<select id="getBoardList" parameterType="Pager" resultType="NoticeDTO">
+  	<select id="getBoardList" parameterType="Pager" resultType="qnaDTO">
 	  	SELECT * FROM
 	  	(
 		  	SELECT ROWNUM R, N.* FROM
 		  		(
-			  		SELECT NUM, TITLE, CONTENTS, WRITER, REGDATE, HIT FROM NOTICE
-			  		<include refid="noticeCondition"></include>
+			  		SELECT NUM, TITLE, CONTENTS, WRITER, REGDATE, HIT FROM qna
+			  		<include refid="qnaCondition"></include>
 			  		ORDER BY NUM DESC
 		  		) N
 	  	)
 	  	WHERE R BETWEEN #{startRow} AND #{lastRow} 
   	</select>
-  	
-  	<insert id="setBoardAdd" parameterType="BbsDTO"></insert>
   
   </mapper>
