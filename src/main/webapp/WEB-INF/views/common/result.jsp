@@ -9,10 +9,9 @@
 <body>
 	<script type="text/javascript">
 		let message = '${result}';
-		if(message ! = '') {
+		if(message != '') {
 			alert(message);
 		}
-		alert();
 		location.href='${url}';
 	</script>
 </body>

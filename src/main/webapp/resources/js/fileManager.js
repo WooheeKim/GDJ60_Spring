@@ -1,9 +1,9 @@
-const fileList = document.getElementById("fileList");
 const fileAdd = document.getElementById("fileAdd");
+const fileList = document.getElementById("fileList");
 
 let count = 0;
-let max = 5;
-let param = pic;
+let max = 1;
+let param = 'pic';
 
 function setParam(p) {
     param = p;

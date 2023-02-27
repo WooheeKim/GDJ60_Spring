@@ -2,6 +2,8 @@ package com.woo.s1.board.notice;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -47,9 +49,9 @@ public class NoticeController {
 	}
 	
 	@PostMapping("add")
-	public ModelAndView setBoardAdd(NoticeDTO noticeDTO, MultipartFile [] files) throws Exception {
+	public ModelAndView setBoardAdd(NoticeDTO noticeDTO, MultipartFile [] files, HttpSession session) throws Exception {
 		ModelAndView modelAndView = new ModelAndView();
-		int result = noticeService.setBoardAdd(noticeDTO);
+		int result = noticeService.setBoardAdd(noticeDTO, files, session);
 		
 		String message = "등록 실패";
 		
@@ -57,7 +59,7 @@ public class NoticeController {
 			message = "글이 등록 되었습니다.";
 		}
 		
-		modelAndView.addObject("result", result);
+		modelAndView.addObject("result", message);
 		modelAndView.addObject("url", "./list");
 		modelAndView.setViewName("common/result");
 		return modelAndView;
@@ -72,5 +74,25 @@ public class NoticeController {
 		modelAndView.setViewName("board/detail");
 		
 		return modelAndView;		
+	}
+	
+	
+	@PostMapping("delete")
+	public ModelAndView setBoardDelete(BbsDTO bbsDTO, HttpSession session) throws Exception {
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("common/result");
+		
+		int result = noticeService.setBoardDelete(bbsDTO, session);
+		
+		String message = "삭제 실패";
+		
+		if(result>0) {
+			message = "삭제되었습니다.";
+		}
+		
+		modelAndView.addObject("result", message);
+		modelAndView.addObject("url", "./list");
+		
+		return modelAndView;
 	}
 }

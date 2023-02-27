@@ -2,6 +2,8 @@ package com.woo.s1.board.qna;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,6 +11,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.woo.s1.board.BbsDTO;
@@ -48,9 +51,9 @@ public class QnaController {
 	}
 	
 	@PostMapping("add")
-	public ModelAndView setBoardAdd(QnaDTO qnaDTO) throws Exception {
+	public ModelAndView setBoardAdd(QnaDTO qnaDTO, MultipartFile [] files, HttpSession session) throws Exception {
 		ModelAndView modelAndView = new ModelAndView();
-		int result = qnaService.setBoardAdd(qnaDTO);
+		int result = qnaService.setBoardAdd(qnaDTO, files, session);
 		
 		String message = "등록 실패";
 		
@@ -58,7 +61,7 @@ public class QnaController {
 			message = "글이 등록 되었습니다.";
 		}
 		
-		modelAndView.addObject("result", result);
+		modelAndView.addObject("result", message);
 		modelAndView.addObject("url", "./list");
 		modelAndView.setViewName("common/result");
 		return modelAndView;
@@ -98,8 +101,26 @@ public class QnaController {
 		
 		modelAndView.setViewName("common/result");
 		modelAndView.addObject("result", message);
-		modelAndView.addObject("url",".detail?num="+qnaDTO.getNum());
-		return modelAndView;
+		modelAndView.addObject("url","./detail?num="+qnaDTO.getNum());
+		return modelAndView;	
+	}
+	
+	@PostMapping("delete")
+	public ModelAndView setBoardDelete(BbsDTO bbsDTO, HttpSession session) throws Exception {
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("common/result");
 		
+		int result = qnaService.setBoardDelete(bbsDTO, session);
+		
+		String message = "삭제 실패";
+		
+		if(result>0) {
+			message = "삭제되었습니다.";
+		}
+		
+		modelAndView.addObject("result", message);
+		modelAndView.addObject("url", "./list");
+		
+		return modelAndView;
 	}
 }

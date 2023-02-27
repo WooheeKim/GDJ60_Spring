@@ -10,47 +10,44 @@
 </head>
 <body>
 	<c:import url="../template/header.jsp"></c:import>
+	
 	<div class="container-fluid">
-		<div class="row md-6">
-			<h1 class="col-md-7 mx-auto text-center border-bottom border-dark-pb-3">상품등록 페이지</h1>
-		</div>
 	
-	<form class="col-md-7 mx-auto center" action="./add" method="post" enctype="multipart/form-data">
-		<div class="row mb-3">
-   			<label for="writer" class="col-sm-0 col-form-label">작성자</label>
-   			<div class="col-sm-6">
-     			<input name="writer" type="text" class="form-control" id="writer">
-   			</div>
- 		</div>
-	
-		<div class="row mb-3">
-   			<label for="title" class="col-sm-0 col-form-label">제목</label>
-			<div class="col-sm-6">
-				<input name="title" type="text" class="form-control" id="title" placeholder="제목을 입력하세요">
-			</div>
+		<div class="row justify-content-center my-4">
+			<h1 class="col-md-7 text-center my-4">${boardName} 상품등록 페이지</h1>
 		</div>
 		
-		<div class="row mb-3">
-   			<label for="contents" class="col-sm-0 col-form-label">내용</label>
-  			<div class="col-sm-6">
-   				<textarea name="contents" class="form-control" id="contents" placeholder="내용을 입력하세요"></textarea>
-   			</div>
+		<div class="row justify-content-center my-4">
+			<form class="col-md-7" action="./add" method="post" enctype="multipart/form-data">
+				<div class="mb-3">
+		   			<label for="writer" class="form-label">작성자</label>		   			
+		     		<input name="writer" type="text" class="form-control" id="writer">		   			
+		 		</div>
+			
+				<div class="mb-3">
+		   			<label for="title" class="form-label">제목</label>			
+					<input name="title" type="text" class="form-control" id="title" placeholder="제목을 입력하세요">			
+				</div>
+				
+				<div class="mb-3">
+		   			<label for="contents" class="form-label">내용</label>  			
+		   			<textarea name="contents" class="form-control" id="contents" placeholder="내용을 입력하세요" rows="7"></textarea>   			
+				</div>
+				
+				<div id="fileList" class="my-5">
+					<!-- <div class="input-group mb-3">
+						<input type="file" class="form-control" id="files" name="files">
+						<button type="button" class="btn btn-danger"></button>
+					</div> -->
+					<button type="button" class="btn btn-primary" id="fileAdd">Add</button>
+				</div>
+				
+				<div class="mb-3">		
+					<button class="my btn btn-danger" type="submit">글쓰기</button>
+				</div>
+			
+			</form>
 		</div>
-		
-		<div id="fileList">
-			<!-- <div class="input-group mb-3">
-				<input type="file" class="form-control" id="files" name="files">
-				<button type="button" class="btn btn-danger"></button>
-			</div> -->
-			<button type="button" id="fileAdd">Add</button>
-		</div>
-		
-		<fieldset>
-			<!-- <input type="submit" value="등록"> -->
-			<button type="submit">글쓰기</button>
-		</fieldset>
-		
-		</form>
 	</div>
 		<script src="../resources/js/fileManager2.js"></script>
 		<script>
