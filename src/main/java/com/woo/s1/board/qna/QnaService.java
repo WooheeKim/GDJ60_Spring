@@ -1,6 +1,5 @@
 package com.woo.s1.board.qna;
 
-import java.io.File;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -9,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.woo.s1.board.BbsDAO;
 import com.woo.s1.board.BbsDTO;
 import com.woo.s1.board.BoardDTO;
 import com.woo.s1.board.BoardFileDTO;
@@ -70,7 +68,7 @@ public class QnaService implements BoardService {
 
 	@Override
 	public int setBoardDelete(BbsDTO bbsDTO, HttpSession session) throws Exception {
-		// TODO Auto-generated method stub
+
 		List<BoardFileDTO> ar = qnaDAO.getBoardFileList(bbsDTO);
 		int result = qnaDAO.setBoardDelete(bbsDTO);
 		
@@ -87,9 +85,7 @@ public class QnaService implements BoardService {
 	}
 
 	@Override
-	public BoardDTO getBoardDetail(BoardDTO boardDTO) throws Exception {
-		// TODO Auto-generated method stub
-		
+	public BoardDTO getBoardDetail(BoardDTO boardDTO) throws Exception {		
 		return qnaDAO.getBoardDetail(boardDTO);
 	}
 	
@@ -121,7 +117,11 @@ public class QnaService implements BoardService {
 		
 		return result;
 		
-		
+	}
+	
+	@Override
+	public BoardFileDTO getBoardFileDetail(BoardFileDTO boardFileDTO) throws Exception {	
+		return qnaDAO.getBoardFileDetail(boardFileDTO);
 	}
 	
 }

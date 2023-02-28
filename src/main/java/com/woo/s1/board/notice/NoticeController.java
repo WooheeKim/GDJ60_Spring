@@ -15,8 +15,8 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.woo.s1.board.BbsDTO;
-import com.woo.s1.board.BbsService;
 import com.woo.s1.board.BoardDTO;
+import com.woo.s1.board.BoardFileDTO;
 import com.woo.s1.util.Pager;
 
 @Controller
@@ -92,6 +92,18 @@ public class NoticeController {
 		
 		modelAndView.addObject("result", message);
 		modelAndView.addObject("url", "./list");
+		
+		return modelAndView;
+	}
+	
+	@GetMapping("fileDown")
+	public ModelAndView getFileDown(BoardFileDTO boardFileDTO) throws Exception {
+		ModelAndView modelAndView = new ModelAndView();
+		boardFileDTO = noticeService.getBoardFileDetail(boardFileDTO);
+		
+		modelAndView.addObject("boardFile", boardFileDTO);
+		modelAndView.setViewName("fileDownView");
+		
 		
 		return modelAndView;
 	}

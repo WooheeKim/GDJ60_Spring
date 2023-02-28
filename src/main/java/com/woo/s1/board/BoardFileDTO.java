@@ -2,7 +2,7 @@ package com.woo.s1.board;
 
 public class BoardFileDTO {
 	private Long fileNum;
-	private Long num;
+	private long num;
 	private String fileName;
 	private String oriName;
 	
@@ -12,10 +12,10 @@ public class BoardFileDTO {
 	public void setFileNum(Long fileNum) {
 		this.fileNum = fileNum;
 	}
-	public Long getNum() {
+	public long getNum() {
 		return num;
 	}
-	public void setNum(Long num) {
+	public void setNum(long num) {
 		this.num = num;
 	}
 	public String getFileName() {
