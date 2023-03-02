@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.woo.s1.board.BbsDAO;
 import com.woo.s1.board.BbsDTO;
 import com.woo.s1.board.BoardDTO;
 import com.woo.s1.board.BoardFileDTO;
@@ -62,7 +61,6 @@ public class NoticeService implements BoardService {
 
 	@Override
 	public int setBoardUpdate(BbsDTO bbsDTO) throws Exception {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
@@ -84,13 +82,11 @@ public class NoticeService implements BoardService {
 
 	@Override
 	public BoardDTO getBoardDetail(BoardDTO boardDTO) throws Exception {
-		// TODO Auto-generated method stub
 		return noticeDAO.getBoardDetail(boardDTO);
 	}
 	
 	@Override
 	public BoardFileDTO getBoardFileDetail(BoardFileDTO boardFileDTO) throws Exception {
-		// TODO Auto-generated method stub
 		return noticeDAO.getBoardFileDetail(boardFileDTO);
 	}
 	
