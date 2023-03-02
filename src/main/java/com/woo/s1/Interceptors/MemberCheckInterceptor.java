@@ -1,5 +1,6 @@
 package com.woo.s1.Interceptors;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -16,9 +17,24 @@ public class MemberCheckInterceptor extends HandlerInterceptorAdapter {
 		// Controller 진입 전
 		// return이 true라면 다음 Controller로 진행
 		// return이 true라면 다음 Controller로 진행 X
-		System.out.println("Controller 진입 전 체크");
-		response.sendRedirect("");
-		return true;
+		
+		Object obj = request.getSession().getAttribute("member");
+		
+		if(obj != null) {
+			return true;
+		}
+		System.out.println("로그인 안한 경우");
+		
+		// 1. Forward Jsp
+		request.setAttribute("result", "권한이 없습니다.");
+		request.setAttribute("url", "../member/memberLogin");
+		RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/views/common/result.jsp");
+		view.forward(request, response);
+		
+		// 2. Redirect
+//		response.sendRedirect("../../../../../member/memberLogin");
+		
+		return false;		
 	}
 	
 	@Override
