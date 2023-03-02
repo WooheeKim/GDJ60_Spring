@@ -35,7 +35,6 @@ public class QnaController {
 	public ModelAndView getBoardList(@ModelAttribute Pager pager) throws Exception {
 		ModelAndView modelAndView = new ModelAndView();
 		List<BbsDTO> ar = qnaService.getBoardList(pager);
-		
 		modelAndView.addObject("list", ar);
 		modelAndView.setViewName("board/list");
 		return modelAndView;
@@ -144,4 +143,9 @@ public class QnaController {
 		
 		return modelAndView;
 	}
+	
+	//====================================================================
+	
+	
+	
 }
