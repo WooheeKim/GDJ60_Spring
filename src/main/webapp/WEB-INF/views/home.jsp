@@ -37,10 +37,11 @@
 	</div>
 	</div>
 </div>
-<div>
-	<h1>${member.name}</h1>
+<div class="container-fluid my-5">
+	
 </div>	
 	
 	<c:import url="./template/common_js.jsp"></c:import>
+	<script src="/resources/js/ajaxTest.js"></script>
 </body>
 </html>

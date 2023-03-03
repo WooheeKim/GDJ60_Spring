@@ -30,18 +30,37 @@ let checks = [false, false, false, false, false, false, false, false];
 
 // ID 검증
 id.addEventListener("blur", function() {
-    if(id.value.length != 0) {
-        idResult.innerHTML="중복체크를 해주세요.";
-        // idCheck = true;
-        checks[0]=true;
-        idResult.classList.add('blueResult');
-        idResult.classList.remove("redResult");
-    } else {
-        idResult.innerHTML="아이디는 필수 입력입니다."
-        checks[0] = false;
-        idResult.classList.add('redResult');
-        idResult.classList.remove("blueResult");
-    }
+    // 중복검사
+    let xhttp = new XMLHttpRequest();
+
+    // url, method
+    xhttp.open("POST", "./memberIdCheck");
+
+    // header
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+    // 요청 발생 POST일 경우 parameter 전송
+    xhttp.send("id="+id.value);
+
+    // 응답 처리
+    xhttp.addEventListener("readystatechange", function(){
+        if(this.readyState==4 && this.status==200) {
+            if(this.responseText.trim()=='true') {
+                checks[0]=true;
+                idResult.innerHTML="사용이 가능한 아이디입니다.";                
+                idResult.classList.add('blueResult');
+                idResult.classList.remove("redResult");
+            } else {
+                checks[0] = false;
+                idResult.innerHTML="중복된 아이디입니다.";
+                idResult.classList.add('redResult');
+                idResult.classList.remove("blueResult");
+            }
+        }
+        // if(this.readyState==4 && this.status!=200) {
+
+        // }
+    });
 });
 
 // PW 검증

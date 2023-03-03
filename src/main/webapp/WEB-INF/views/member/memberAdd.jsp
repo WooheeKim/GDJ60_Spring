@@ -32,7 +32,7 @@
 		<div class="mb-3">
 			<label for="id" class="form-label fw-bold">아이디</label>
 			<input type="text" name="id" class="form-control" id="id" placeholder="아이디 입력">
-			<div id="idResult"></div>
+			<div id="idResult" class=""></div>
 		</div>
 		
 		<div class="mb-3">
@@ -77,7 +77,7 @@
 		</form>
 	</div>
 </div>
-<script type="text/javascript" src="../resources/js/memberAdd.js"></script>
+<script src="../resources/js/memberAdd.js"></script>
 <c:import url="../template/common_js.jsp"></c:import>
 </body>
 </html>
