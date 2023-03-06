@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.woo.s1.board.BbsDTO;
 import com.woo.s1.util.FileManager;
 import com.woo.s1.util.Pager;
 

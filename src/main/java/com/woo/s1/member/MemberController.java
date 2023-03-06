@@ -44,7 +44,6 @@ public class MemberController {
 	public ModelAndView setMemberAdd(MemberDTO memberDTO) throws Exception {
 		ModelAndView modelAndView = new ModelAndView();
 		int result = memberService.setMemberAdd(memberDTO);
-		
 		modelAndView.setViewName("redirect:../");
 		return modelAndView;
 	}

@@ -41,7 +41,7 @@
 		<textarea class="form-control" rows="3" id="replyContents"></textarea>
 	</div>
 	<div class="mb-3">
-		<button type="button" class="btn btn-primary" id="replyAdd" data-book-bookNumber="">댓글작성</button>
+		<button type="button" class="btn btn-primary" id="replyAdd" data-book-bookNumber="${dto.bookNumber}">댓글작성</button>
 	</div>
 </div>
 
