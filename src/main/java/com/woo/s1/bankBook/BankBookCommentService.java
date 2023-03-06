@@ -37,7 +37,7 @@ public class BankBookCommentService implements BbsService {
 
 	@Override
 	public int setBoardUpdate(BbsDTO bbsDTO) throws Exception {
-		return 0;
+		return bankBookCommentDAO.setBoardUpdate(bbsDTO);
 	}
 
 	@Override

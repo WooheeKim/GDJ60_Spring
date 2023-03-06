@@ -7,14 +7,14 @@
 	<meta charset="UTF-8">
 	<title>저축상품</title>
 	<c:import url="../template/common_css.jsp"></c:import>
-	<link rel="stylesheet" href="/resources/css/table.css">
+	
 </head>
 <body>
 	<c:import url="../template/header.jsp"></c:import>
 	
 	<div class="container-fluid my-5">
 		<div class="row mb-4">
-			<h1 class="col-md-7 mx-auto text-center border-bottom border-dark-pb-3">BankBook List Page</h1>
+			<h1 class="col-md-7 mx-auto text-center border-bottom border-dark-pb-4">BankBook List Page</h1>
 		</div>
 		
 	<div class="row col-md-7 mx-auto">

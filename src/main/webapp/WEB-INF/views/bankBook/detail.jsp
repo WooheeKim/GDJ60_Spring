@@ -12,16 +12,16 @@
 	<c:import url="../template/header.jsp"></c:import>
 	<h1>Detail Page</h1>
 	<c:if test="${not empty dto}">
-		<h3>Num : ${dto.bookNumber}</h3>
-		<h3>Title : ${dto.bookName}</h3>
-		<h3>Detail : ${dto.bookDetail}</h3>
-		<h3>Rate : ${dto.bookRate}</h3>
-		<h3>Sale : ${dto.bookSale}</h3>
-		<div>
-			<c:if test="${not empty dto.bankBookImgDTO}">
+	<h3>Num : ${dto.bookNumber}</h3>
+	<h3>Title : ${dto.bookName}</h3>
+	<h3>Detail : ${dto.bookDetail}</h3>
+	<h3>Rate : ${dto.bookRate}</h3>
+	<h3>Sale : ${dto.bookSale}</h3>
+	<div>
+		<c:if test="${not empty dto.bankBookImgDTO}">
 				<img src="../resources/upload/bankBook/${dto.bankBookImgDTO.fileName}">
-			</c:if>
-		</div>
+		</c:if>
+	</div>
 		<a href="./delete?bookNumber=${dto.bookNumber}">상품삭제</a>
 	</c:if>
 	
@@ -36,14 +36,14 @@
 
 	</div>
 
-<div class="my-5">		
-	<div class="mb-3">
-		<textarea class="form-control" rows="3" id="replyContents"></textarea>
+	<div class="my-5">		
+		<div class="mb-3">
+			<textarea class="form-control" rows="3" id="replyContents"></textarea>
+		</div>
+		<div class="mb-3">
+			<button type="button" class="btn btn-primary" id="replyAdd" data-book-bookNumber="${dto.bookNumber}">댓글작성</button>
+		</div>
 	</div>
-	<div class="mb-3">
-		<button type="button" class="btn btn-primary" id="replyAdd" data-book-bookNumber="${dto.bookNumber}">댓글작성</button>
-	</div>
-</div>
 
 <c:import url="../template/common_js.jsp"></c:import>
 <script src="/resources/js/bankBookReply.js"></script>

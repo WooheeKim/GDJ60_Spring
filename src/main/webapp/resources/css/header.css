@@ -27,20 +27,20 @@ header {
 
 .header_nav > ul {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
 }
 
-.header_nav >ul >li {
+.header_nav > ul > li {
     line-height: 67px;
 }
 
-.header_nav >ul >li > a {
+.header_nav > ul > li > a {
     color: white;
     font-weight: bold;
     font-size: 1.1rem;
 }
 
-.header_nav >ul >li > a:hover {
+.header_nav > ul > li > a:hover {
     color: red;
 }
 
@@ -51,19 +51,14 @@ header {
 
 .header_sub > ul {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
 }
 
-.header_sub >ul >li {
+.header_sub > ul > li {
     line-height: 67px;
 }
 
-.header_sub >ul >li > a {
-    color: gray;
-    font-weight: bold;
-    font-size: 0.8rem;
-}
-
-.header_sub >ul >li > a:hover {
+.header_sub > ul > li > a {
     color: white;
+    font-size: 0.8rem;
 }

@@ -6,12 +6,18 @@
 <table>
 <c:forEach items="${list}" var="dto">
 	<tr>
-	<td>${dto.contents}</td>
+	<td id="contents${dto.num}">${dto.contents}</td>
 	<td>${dto.writer}</td>
 	<td>${dto.regDate}</td>
-	<td><c:if test="${member.id eq dto.writer}">
-	
-	</c:if>
+	<td>
+		<c:if test="${member.id eq dto.writer}">
+		<button class="btn btn-info update" data-comment-num="${dto.num}"><text>UPDATE</button>
+		</c:if>
+	</td>
+	<td>
+		<c:if test="${member.id eq dto.writer}">
+		<button class="btn btn-info del" data-comment-num="${dto.num}">DELETE</button>
+		</c:if>
 	</td>
 	
 	</tr>

@@ -16,7 +16,6 @@ import com.woo.s1.board.BbsService;
 import com.woo.s1.member.MemberDTO;
 import com.woo.s1.util.Pager;
 
-import oracle.jdbc.proxy.annotation.Post;
 
 @Controller
 @RequestMapping("/bankBookComment/*")
@@ -41,7 +40,7 @@ public class BankBookCommentController {
 	public ModelAndView setBoardAdd(BankBookCommentDTO bankBookCommentDTO, HttpSession session) throws Exception {
 		ModelAndView modelAndView = new ModelAndView();
 		MemberDTO memberDTO = (MemberDTO)session.getAttribute("member");
-//		bankBookCommentDTO.setWriter(memberDTO.getId());
+		//bankBookCommentDTO.setWriter(memberDTO.getId());
 		bankBookCommentDTO.setWriter("king6");
 		int result = bankBookCommentService.setBoardAdd(bankBookCommentDTO, null, null);				
 		modelAndView.addObject("result", result);
@@ -55,6 +54,18 @@ public class BankBookCommentController {
 		ModelAndView modelAndView = new ModelAndView();
 		
 		int result = bankBookCommentService.setBoardDelete(bankBookCommentDTO, null);
+		
+		modelAndView.addObject("result", result);
+		modelAndView.setViewName("common/ajaxResult");
+		
+		return modelAndView;
+	}
+	
+	@PostMapping("update")
+	public ModelAndView setBoardUpdate(BankBookCommentDTO bankBookCommentDTO) throws Exception {
+		ModelAndView modelAndView = new ModelAndView();
+		
+		int result = bankBookCommentService.setBoardUpdate(bankBookCommentDTO);
 		
 		modelAndView.addObject("result", result);
 		modelAndView.setViewName("common/ajaxResult");
