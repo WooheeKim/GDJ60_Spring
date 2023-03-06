@@ -7,6 +7,7 @@
 <c:forEach items="${list}" var="dto">
 	<tr>
 	<td id="contents${dto.num}">${dto.contents}</td>
+	<button class="btn btn-info update" data-comment-num="${dto.num}">UPDATE</button>
 	<td>${dto.writer}</td>
 	<td>${dto.regDate}</td>
 	<td>
