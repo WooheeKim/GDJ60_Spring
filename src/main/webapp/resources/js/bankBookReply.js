@@ -26,7 +26,7 @@ replyAdd.addEventListener("click", function(){
 
 })
 
-getList();
+getList(1);
 
 function getList(page) {
 
@@ -34,7 +34,7 @@ function getList(page) {
 
     let xhttp = new XMLHttpRequest();
 
-    xhttp.open("GET", "/bankBookComment/list?bookNumber="+replyAdd.getAttribute('data-book-bookNumber')+"&page=");
+    xhttp.open("GET", "/bankBookComment/list?bookNumber="+replyAdd.getAttribute('data-book-bookNumber')+"&page="+page);
 
     xhttp.addEventListener('readystatechange', function() {
         if(this.readyState==4 && this.status==200) {            
@@ -52,7 +52,7 @@ function getList(page) {
 
 // page
 commentListResult.addEventListener("click",function(e){
-    let pageLink = e.target();
+    let pageLink = e.target;
     if(pageLink.classList.contains("page-link")) {
         let page = pageLink.getAttribute("data-board-page");
         getList(page);
@@ -63,7 +63,7 @@ commentListResult.addEventListener("click",function(e){
 
 // delete
 commentListResult.addEventListener("click",function(e){
-    let del = e.target();
+    let del = e.target;
     if(del.classList.contains("del")) {
         let xhttp = new XMLHttpRequest();
         xhttp.open("POST", "../bankBookComment/delete");
@@ -87,7 +87,7 @@ commentListResult.addEventListener("click",function(e){
 
 // Update
 commentListResult.addEventListener("click",function(e){
-    let updateButton = e.target();
+    let updateButton = e.target;
     if(updateButton.classList.contains("update")) {
         // console.log(updateButton.parentNode.previousSibling.previousSibling.previousSibling.previousSibling);
         let num = updateButton.getAttribute("data-comment-num");
@@ -125,4 +125,5 @@ commentListResult.addEventListener("click",function(e){
         })
 
     }
+    e.preventDefault();
 })

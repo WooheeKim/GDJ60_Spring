@@ -9,32 +9,26 @@
 	<c:import url="../template/common_css.jsp"></c:import>
 </head>
 <body>
-	<c:import url="../template/header.jsp"></c:import>
-	<div class="container-fluid">
-		<div class="row md-6">
-			<h1 class="col-md-7 mx-auto text-center border-bottom border-dark-pb-3">상품등록 페이지</h1>
+<c:import url="../template/header.jsp"></c:import>
+	<div class="contanier-fluid">
+		<div class="row justify-content-center my-4">		
+			<h1 class="col-md-7 text-center">상품등록 페이지</h1>
 		</div>
-	
-	<form class="col-md-7 mx-auto center" action="./add" method="post" enctype="multipart/form-data">
-		<div class="row mb-3">
-   			<label for="bookName" class="col-sm-0 col-form-label">상품명</label>
-   			<div class="col-sm-6">
-     			<input name="bookName" type="text" class="form-control" id="bookName" placeholder="제품명을 입력하세요">
-   			</div>
+<div class="row justify-content-center my-4">
+	<form class="col-md-7" action="./add" method="post" enctype="multipart/form-data">
+		<div class="mb-3">
+   			<label for="bookName" class="form-label">제품명</label>
+   			<input name="bookName" type="text" class="form-control" id="bookName" placeholder="제품명을 입력하세요">   			
  		</div>
 	
-		<div class="row mb-3">
-   			<label for="bookRate" class="col-sm-0 col-form-label">이자율</label>
-			<div class="col-sm-6">
-				<input name="bookRate" type="text" class="form-control" id="bookRate" placeholder="이자율을 입력하세요">
-			</div>
+		<div class="mb-3">
+   			<label for="bookRate" class="form-label">이자율</label>
+			<input name="bookRate" type="text" class="form-control" id="bookRate" placeholder="이자율을 입력하세요">			
 		</div>
 		
-		<div class="row mb-3">
-   			<label for="bookDetail" class="col-sm-0 col-form-label">상세정보</label>
-  			<div class="col-sm-6">
-   				<textarea name="bookDetail" class="form-control" id="bookRate" placeholder="제품명을 입력하세요"></textarea>
-   			</div>
+		<div class="mb-3">
+   			<label for="bookDetail" class="form-label">상세정보</label>
+   			<textarea name="bookDetail" class="form-control" id="bookDetail" placeholder="설명을 입력하세요"></textarea>   			
 		</div>
 		
 		<div id="fileList">
@@ -44,27 +38,18 @@
 			</div> -->
 			<button type="button" id="fileAdd">Add</button>
 		</div>
-		<!-- <fieldset>
-			<legend>판매여부</legend>
-			<label for="woo1">판매</label>
-			<input id="woo1" type="radio" checked="checked" name="bookSale" value="1">
-			<label for="woo2">판매중단</label>
-			<input id="woo2" type="radio" name="bookSale" value="0">
-		</fieldset>
-		<fieldset>
-			<legend>판매여부</legend>
-			<select name="bookSale">
-				<option value="1">판매</option>
-				<option value="0" selected="selected">판매중단</option>
-			</select>
-		</fieldset> -->
-		<fieldset>
-			<!-- <input type="submit" value="등록"> -->
-			<button type="submit">등록</button>
-		</fieldset>
 		
-		</form>
+		<div class="mb-3 form-check form-switch">
+			<label class="form-check-label" for="bookSale">판매여부</label>
+			<input name="bookSale" class="form-check-input" value="1" type="checkbox" role="switch" id="bookSale">
+		</div>
+		
+		<div class="mb-3">			
+			<button class="my btn btn-danger" type="submit">등록</button>
+		</div>		
+	</form>
 	</div>
+</div>
 		<script src="../resources/js/fileManager.js"></script>
 		<script>
 			setMax(3);
