@@ -47,7 +47,7 @@
    </delete>
    
    <update id="setBoardUpdate" parameterType="BbsDTO">
-   		UPDATE BANKBOOKCOMMENT SET CONTENTS=#{contents} where NUM=#{num}
+   		UPDATE BANKBOOKCOMMENT SET CONTENTS=#{contents} WHERE NUM=#{num}
    </update>
    
   </mapper>

@@ -51,10 +51,10 @@
 	</div>
 </div>
 		<script src="../resources/js/fileManager.js"></script>
+		<c:import url="../template/common_js.jsp"></c:import>
 		<script>
 			setMax(3);
 			// setParam('f');
 		</script>
-		<c:import url="../template/common_js.jsp"></c:import>
 </body>
 </html>
