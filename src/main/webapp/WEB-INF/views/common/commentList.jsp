@@ -5,9 +5,7 @@
 <table class="table table-striped">
 <c:forEach items="${list}" var="dto">
 	<tr>
-		<td id="contents${dto.num}">
-			<textarea rows="" cols="30" readonly="readonly">${dto.contents}</textarea>
-		</td>
+		<td id="contents${dto.num}"><textarea rows="" cols="30" readonly>${dto.contents}</textarea></td>
 		<td>${dto.writer}</td>
 		<td>${dto.regDate}</td>
 		<td>
