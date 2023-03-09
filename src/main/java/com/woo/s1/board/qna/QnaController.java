@@ -48,9 +48,9 @@ public class QnaController {
 	}
 	
 	@PostMapping("add")
-	public ModelAndView setBoardAdd(QnaDTO qnaDTO, MultipartFile [] files, HttpSession session) throws Exception {
+	public ModelAndView setBoardAdd(QnaDTO qnaDTO, MultipartFile [] addFiles, HttpSession session) throws Exception {
 		ModelAndView modelAndView = new ModelAndView();
-		int result = qnaService.setBoardAdd(qnaDTO, files, session);
+		int result = qnaService.setBoardAdd(qnaDTO, addFiles, session);
 		
 		String message = "등록 실패";
 		
@@ -140,6 +140,18 @@ public class QnaController {
 		
 		modelAndView.addObject("dto", boardDTO);
 		modelAndView.setViewName("board/update");
+		
+		return modelAndView;
+	}
+	
+	@PostMapping("update")
+	public ModelAndView setBoardUpdate(BoardDTO boardDTO, MultipartFile [] addFiles, HttpSession session, Long [] fileNum) throws Exception {
+		ModelAndView modelAndView = new ModelAndView();
+		int result = qnaService.setBoardUpdate(boardDTO, addFiles, session, fileNum);
+		
+		modelAndView.setViewName("common/result");
+		modelAndView.addObject("result", "수정 성공");
+		modelAndView.addObject("url", "./list");
 		
 		return modelAndView;
 	}
