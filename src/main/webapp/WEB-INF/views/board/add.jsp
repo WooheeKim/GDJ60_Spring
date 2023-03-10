@@ -24,7 +24,7 @@
 			<form class="col-md-7" action="./add" method="post" enctype="multipart/form-data">
 				<div class="mb-3">
 		   			<label for="writer" class="form-label">작성자</label>		   			
-		     		<input name="writer" type="text" value="${member.id}" class="form-control" id="writer" readonly="readonly">		   			
+		     		<input name="writer" type="text" class="form-control" id="writer" readonly="readonly">		   			
 		 		</div>
 			
 				<div class="mb-3">
